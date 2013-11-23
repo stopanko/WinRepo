@@ -65,9 +65,9 @@ namespace SlXnaApp1
             //_page.showResult(name);
             //game_page.SendTxt = "Send";
             //GameTimerEventArgs e;
-            _game_page.Vect(eventObj);
+            //_game_page.Vect(eventObj);
             //_game_page.dir(e, new Vector2(3,3)); 
-
+            _game_page.Bal.GetDates(eventObj);
 
 
         }

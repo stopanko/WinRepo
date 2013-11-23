@@ -76,6 +76,7 @@
     <Compile Include="AppServiceProvider.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Balls.cs" />
     <Compile Include="ConListen.cs" />
     <Compile Include="GameNotificationListener.cs" />
     <Compile Include="LobbyReqListen.cs" />
