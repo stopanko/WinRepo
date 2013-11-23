@@ -6,3 +6,11 @@ C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Б�
 C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\ball.xnb
 C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\SlXnaApp1Lib.csprojResolveAssemblyReference.cache
 C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\Font1.xnb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\ball.xnb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\Font1.xnb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\SlXnaApp1Lib.dll
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\SlXnaApp1Lib.pdb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\SlXnaApp1Lib.csprojResolveAssemblyReference.cache
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\SlXnaApp1Lib.dll
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\SlXnaApp1Lib.pdb

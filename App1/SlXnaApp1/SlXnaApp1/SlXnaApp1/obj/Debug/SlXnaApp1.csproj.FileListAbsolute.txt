@@ -18,3 +18,21 @@ C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Б�
 C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\AppWarp_WP7_SDK.dll
 C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\ball.xnb
 C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\Font1.xnb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\ApplicationIcon.png
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Background.png
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\ball.xnb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\Font1.xnb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\SlXnaApp1.dll
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\SlXnaApp1.pdb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\AppManifest.xaml
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\SlXnaApp1.xap
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\SlXnaApp1Lib.dll
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\SlXnaApp1Lib.pdb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\SlXnaApp1.csprojResolveAssemblyReference.cache
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\App.g.i.cs
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\MainPage.g.i.cs
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\GamePage.g.i.cs
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\SlXnaApp1.g.resources
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\SlXnaApp1.dll
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\SlXnaApp1.pdb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\XapCacheFile.xml

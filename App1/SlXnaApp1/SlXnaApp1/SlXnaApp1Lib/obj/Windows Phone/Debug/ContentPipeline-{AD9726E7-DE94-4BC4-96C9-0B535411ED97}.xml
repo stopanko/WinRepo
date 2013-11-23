@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\ball.xnb</Output>
+      <Output>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\ball.xnb</Output>
       <Time>2013-11-11T23:49:58.5020692+02:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\Font1.xnb</Output>
+      <Output>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\Font1.xnb</Output>
       <Time>2013-11-19T18:29:39.3569634+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -26,10 +26,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1LibContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\ATOM\Dropbox\БСМ\ХНУ\IV\Бакалаврська робота(Бойчишин 2014 XNA)\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1LibContent\</RootDirectory>
+      <LoggerRootDirectory>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

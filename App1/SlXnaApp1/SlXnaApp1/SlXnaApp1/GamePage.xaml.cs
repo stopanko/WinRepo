@@ -25,6 +25,7 @@ namespace SlXnaApp1
     {
         ContentManager contentManager;
         GameTimer timer;
+        double start, stop;
         SpriteBatch spriteBatch;
         Texture2D Circle;
         Vector2 origin = new Vector2(0, 0);
@@ -47,19 +48,27 @@ namespace SlXnaApp1
         public void Vect(UpdateEvent eventObj)
         {
             
-            
+                GameTimerEventArgs e = new GameTimerEventArgs();
+                
                 JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
-                //clicPos.X = int.Parse(jsonObj["X"].ToString());
-                //clicPos.Y = int.Parse(jsonObj["Y"].ToString());
+                clicPos.X = int.Parse(jsonObj["X"].ToString());
+                clicPos.Y = int.Parse(jsonObj["Y"].ToString());
+                
+                //origin.X = float.Parse(jsonObj["originX"].ToString());
+                //origin.Y = float.Parse(jsonObj["originY"].ToString());
 
-                origin.X = float.Parse(jsonObj["originX"].ToString());
-                origin.Y = float.Parse(jsonObj["originY"].ToString());
+                stop = e.TotalTime.TotalMilliseconds;
+                //Vector2 _Indir = new Vector2();
+                indir = clicPos - origin;
+                indir.Normalize();
 
-                indir.X = float.Parse(jsonObj["indirX"].ToString());
-                indir.Y = float.Parse(jsonObj["indirY"].ToString());
+                
+
+                //indir.X = float.Parse(jsonObj["indirX"].ToString());
+                //indir.Y = float.Parse(jsonObj["indirY"].ToString());
                 
                 //SendTxt = jsonObj["X"].ToString() +" | " + jsonObj["Y"].ToString();
-                SendTxt = jsonObj["indirX"].ToString() +" | " + jsonObj["indirY"].ToString();
+                SendTxt = jsonObj["X"].ToString() +" | " + jsonObj["Y"].ToString() + "// " + (stop-start);
                 //SendTxt = "Sended";
  
 
@@ -73,7 +82,7 @@ namespace SlXnaApp1
             return (Vector2)indir * speed1;
         }
 
-        public Vector2 dir(Vector2 pos)
+        public Vector2 dir(Vector2 pos, GameTimerEventArgs e)
         {
             //clicPos = new Vector2(pos.X, pos.Y);
            // get
@@ -96,7 +105,7 @@ namespace SlXnaApp1
 
                 //float t =  * 3;
 
-                return indir * speed1;// *(float)e.ElapsedTime.TotalMilliseconds / 1000;
+                return indir * speed1 * (float)e.ElapsedTime.Milliseconds/30;// *(float)e.ElapsedTime.TotalMilliseconds / 1000;
                 
             //}
         }
@@ -181,26 +190,29 @@ namespace SlXnaApp1
             TouchCollection touches = TouchPanel.GetState();
             foreach (TouchLocation loc in touches)
             {
+                
+
                 if (loc.State == TouchLocationState.Pressed)
                 {
                     clicPos.X = loc.Position.X - 150 / 2;
                     clicPos.Y = loc.Position.Y - 150 / 2;
+                    start = e.TotalTime.TotalMilliseconds;
 
-                    //indir = clicPos - origin;
-                    //indir.Normalize();
+                    indir = clicPos - origin;
+                    indir.Normalize();
 
-                    Vector2 _Indir = new Vector2();                    
-                    _Indir = clicPos - origin;
-                    _Indir.Normalize();
+                    //Vector2 _Indir = new Vector2();                    
+                    //_Indir = clicPos - origin;
+                    //_Indir.Normalize();
 
                     sDirection = loc.Position;
 
                     JObject moveObj = new JObject();
-                    moveObj.Add("X", loc.Position.X);
-                    moveObj.Add("Y", loc.Position.Y);
+                    moveObj.Add("X", clicPos.X);
+                    moveObj.Add("Y", clicPos.Y);
 
-                    moveObj.Add("indirX", _Indir.X);
-                    moveObj.Add("indirY", _Indir.Y);
+                    //moveObj.Add("indirX", _Indir.X);
+                    //moveObj.Add("indirY", _Indir.Y);
                     moveObj.Add("originX", origin.X.ToString());
                     moveObj.Add("originY", origin.Y.ToString());
                     WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(moveObj.ToString()));
@@ -210,9 +222,9 @@ namespace SlXnaApp1
                 
             }
 
-            
 
-            origin += dir(clicPos);
+
+            origin += dir(clicPos, e)* (float)e.ElapsedTime.Milliseconds/30;
             //origin += dir(new Vector2(sDirection.X, sDirection.Y));
             
 
