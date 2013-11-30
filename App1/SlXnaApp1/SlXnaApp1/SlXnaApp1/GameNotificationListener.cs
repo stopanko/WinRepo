@@ -63,7 +63,7 @@ namespace SlXnaApp1
             //JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
             //string name = System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length);
             //_page.showResult(name);
-            //game_page.SendTxt = "Send";
+            //_game_page.SendTxt = "Send";
             //GameTimerEventArgs e;
             //_game_page.Vect(eventObj);
             //_game_page.dir(e, new Vector2(3,3)); 

@@ -55,8 +55,12 @@ namespace SlXnaApp1
         public void onGetLiveRoomInfoDone(LiveRoomInfoEvent eventObj)
         {
             _page.showResult("LiveRoominfo" + eventObj.getJoinedUsers().Length);
-            GamePage.ListItem = eventObj.getJoinedUsers().Length - 1;
-
+            Balls.masItem = eventObj.getJoinedUsers().Length - 1;
+           
+            //RoomData d = new RoomData("1995630518","1","s", 3);
+            Balls.cPos = new Microsoft.Xna.Framework.Vector2[eventObj.getData().getMaxUsers()];
+            Balls.sPos = new Microsoft.Xna.Framework.Vector2[eventObj.getData().getMaxUsers()];
+            //_page.showResult("Max" + eventObj.getData().getMaxUsers().ToString());
         }
 
         public void onSetCustomRoomDataDone(LiveRoomInfoEvent eventObj)

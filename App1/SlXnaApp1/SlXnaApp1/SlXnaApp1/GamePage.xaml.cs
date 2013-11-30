@@ -23,7 +23,7 @@ namespace SlXnaApp1
 {
     public partial class GamePage : PhoneApplicationPage
     {
-        public static int ListItem; 
+        
 
         ContentManager contentManager;
         GameTimer timer;
