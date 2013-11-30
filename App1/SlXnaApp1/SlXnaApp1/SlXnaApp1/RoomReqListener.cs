@@ -54,7 +54,9 @@ namespace SlXnaApp1
 
         public void onGetLiveRoomInfoDone(LiveRoomInfoEvent eventObj)
         {
-            _page.showResult(eventObj.getCustomData());
+            _page.showResult("LiveRoominfo" + eventObj.getJoinedUsers().Length);
+            GamePage.ListItem = eventObj.getJoinedUsers().Length - 1;
+
         }
 
         public void onSetCustomRoomDataDone(LiveRoomInfoEvent eventObj)

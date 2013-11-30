@@ -40,7 +40,7 @@ namespace SlXnaApp1
         }
         public void onGetOnlineUsersDone(AllUsersEvent eventObj)
         {
-            
+            _page.showResult("GetOnlineUser" + eventObj.getUserNames().Length);
         }
         public void onGetLiveUserInfoDone(LiveUserInfoEvent eventObj)
         {

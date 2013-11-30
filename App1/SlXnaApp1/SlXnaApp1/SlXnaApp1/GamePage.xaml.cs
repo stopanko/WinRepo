@@ -23,11 +23,15 @@ namespace SlXnaApp1
 {
     public partial class GamePage : PhoneApplicationPage
     {
+        public static int ListItem; 
+
         ContentManager contentManager;
         GameTimer timer;
         SpriteBatch spriteBatch;
-
-
+        bool first = true;
+        bool sec = false;
+        public string NameF;
+        
         Texture2D Circle;
         //Vector2 origin = new Vector2(0, 0);
         //Vector2 indir = new Vector2();
@@ -41,9 +45,10 @@ namespace SlXnaApp1
         //Vector2 sDirection = Vector2.Zero;
         //float mySpeed = 10;
         //Vector2 sPostion = new Vector2(0, 0);
-        public string SendTxt = "";
+        public static string SendTxt = "";
 
         public Balls Bal = new Balls();
+        public Balls Bal2 = new Balls();
 
 
         public void Vect(UpdateEvent eventObj)
@@ -62,7 +67,6 @@ namespace SlXnaApp1
                 //Vector2 _Indir = new Vector2();
                 //indir = clicPos - origin;
                 //indir.Normalize();
-
                 
 
                 //indir.X = float.Parse(jsonObj["indirX"].ToString());
@@ -159,6 +163,9 @@ namespace SlXnaApp1
                     //clicPos.Y = loc.Position.Y - 150 / 2;
                     Bal.GetMoveDir(new Vector2(loc.Position.X - 150 / 2, loc.Position.Y - 150 / 2));
                     Bal.SendDates();
+
+                    Bal2.GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));
+                    Bal2.SendDates();
                 }                             
                                   
 
@@ -167,6 +174,7 @@ namespace SlXnaApp1
 
 
             Bal.MoveSprite(e);
+            Bal2.MoveSprite(e);
             //origin += dir(clicPos, e)* (float)e.ElapsedTime.Milliseconds/30;
             //origin += dir(new Vector2(sDirection.X, sDirection.Y));
             
@@ -182,6 +190,7 @@ namespace SlXnaApp1
             spriteBatch.Begin();
 
             spriteBatch.Draw(Circle, new Microsoft.Xna.Framework.Rectangle((int)(Bal.SpritePos.X), (int)(Bal.SpritePos.Y), 150, 150), Color.White);
+            spriteBatch.Draw(Circle, new Microsoft.Xna.Framework.Rectangle((int)(Bal2.SpritePos.X), (int)(Bal2.SpritePos.Y), 150, 150), Color.White);
             spriteBatch.DrawString(Font, SendTxt, new Vector2(0, 0), Color.White);
             //spriteBatch.Draw(Circle, new Microsoft.Xna.Framework.Rectangle((int)(sPostion.X), (int)(sPostion.Y), 150, 150), Color.White);
             //spriteBatch.Draw(Circle, sPostion,Color.White);

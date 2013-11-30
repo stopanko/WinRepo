@@ -51,9 +51,9 @@ namespace SlXnaApp1
             //byte[] mByte = { Byte.Parse("123") };
             //WarpClient.GetInstance().SendUpdatePeers(mByte);
             //myGame.AddConnectionRequestListener(listenerObj);        
-            
-            
 
+
+            
             NavigationService.Navigate(new Uri("/GamePage.xaml", UriKind.Relative));
         }
 
@@ -72,8 +72,10 @@ namespace SlXnaApp1
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            
             WarpClient.GetInstance().JoinRoom("1995630518");
             WarpClient.GetInstance().SubscribeRoom("1995630518");
+            WarpClient.GetInstance().GetLiveRoomInfo("1995630518");
             //WarpClient.GetInstance().SubscribeRoom("1995630518");
             
         }
@@ -82,6 +84,11 @@ namespace SlXnaApp1
         {
             //WarpClient game = WarpClient.GetInstance();
             WarpClient.GetInstance().SendChat("Chat");
+            //The information includes the names of the currently joined users, the rooms properties and any associated customData.
+            
+            //Retrieves usernames of all the users connected (online) to the server
+            //WarpClient.GetInstance().GetOnlineUsers();  
+            //WarpClient.GetInstance().GetAllRooms(); 
             
         }
 
@@ -90,6 +97,7 @@ namespace SlXnaApp1
             ///JObject jObj = new JObject();
             //jObj.Add("name", "stefan");
             string name= textBox1.Text;
+            
             WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(name));
         }
 
