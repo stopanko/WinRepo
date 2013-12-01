@@ -23,15 +23,16 @@ namespace SlXnaApp1
 {
     public partial class GamePage : PhoneApplicationPage
     {
-        
-
+        public static int masItem;
+        public static int maxUsers;
         ContentManager contentManager;
         GameTimer timer;
         SpriteBatch spriteBatch;
         bool first = true;
         bool sec = false;
         public string NameF;
-        
+
+        public static Balls[] Balls_mas = new Balls[2];
         Texture2D Circle;
         //Vector2 origin = new Vector2(0, 0);
         //Vector2 indir = new Vector2();
@@ -53,29 +54,29 @@ namespace SlXnaApp1
 
         public void Vect(UpdateEvent eventObj)
         {
-            
-                GameTimerEventArgs e = new GameTimerEventArgs();
-                
-                JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
-                //clicPos.X = int.Parse(jsonObj["X"].ToString());
-                //clicPos.Y = int.Parse(jsonObj["Y"].ToString());
-                
-                //origin.X = float.Parse(jsonObj["originX"].ToString());
-                //origin.Y = float.Parse(jsonObj["originY"].ToString());
 
-              
-                //Vector2 _Indir = new Vector2();
-                //indir = clicPos - origin;
-                //indir.Normalize();
-                
+            GameTimerEventArgs e = new GameTimerEventArgs();
 
-                //indir.X = float.Parse(jsonObj["indirX"].ToString());
-                //indir.Y = float.Parse(jsonObj["indirY"].ToString());
-                
-                //SendTxt = jsonObj["X"].ToString() +" | " + jsonObj["Y"].ToString();
-                //SendTxt = jsonObj["X"].ToString() +" | " + jsonObj["Y"].ToString() + "// " + (stop-start);
-                //SendTxt = "Sended";
- 
+            JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
+            //clicPos.X = int.Parse(jsonObj["X"].ToString());
+            //clicPos.Y = int.Parse(jsonObj["Y"].ToString());
+
+            //origin.X = float.Parse(jsonObj["originX"].ToString());
+            //origin.Y = float.Parse(jsonObj["originY"].ToString());
+
+
+            //Vector2 _Indir = new Vector2();
+            //indir = clicPos - origin;
+            //indir.Normalize();
+
+
+            //indir.X = float.Parse(jsonObj["indirX"].ToString());
+            //indir.Y = float.Parse(jsonObj["indirY"].ToString());
+
+            //SendTxt = jsonObj["X"].ToString() +" | " + jsonObj["Y"].ToString();
+            //SendTxt = jsonObj["X"].ToString() +" | " + jsonObj["Y"].ToString() + "// " + (stop-start);
+            //SendTxt = "Sended";
+
 
         }
 
@@ -89,9 +90,9 @@ namespace SlXnaApp1
 
         //public Vector2 dir(Vector2 pos, GameTimerEventArgs e)
         //{
-            
+
         //        //return indir * speed1 * (float)e.ElapsedTime.Milliseconds/30;// *(float)e.ElapsedTime.TotalMilliseconds / 1000;
-                
+
         //}
 
 
@@ -103,28 +104,32 @@ namespace SlXnaApp1
             //new GameNotificationListener(this);
             WarpClient game = WarpClient.GetInstance();
             game.AddNotificationListener(new GameNotificationListener(this));
-            
+
 
 
             // Get the content manager from the application
             contentManager = (Application.Current as App).Content;
-            
+
             // Create a timer for this page
             timer = new GameTimer();
             timer.UpdateInterval = TimeSpan.FromTicks(333333);
             timer.Update += OnUpdate;
             timer.Draw += OnDraw;
-           
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // Set the sharing mode of the graphics device to turn on XNA rendering
             SharedGraphicsDeviceManager.Current.GraphicsDevice.SetSharingMode(true);
-            
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(SharedGraphicsDeviceManager.Current.GraphicsDevice);
-            
+            //Balls_mas[masItem] = new Balls();
+            for (int i = 0; i < maxUsers; i++)
+            {
+                Balls_mas[i] = new Balls();
+            }
             // TODO: use this.content to load your game content here
             Circle = contentManager.Load<Texture2D>("ball");
             Font = contentManager.Load<SpriteFont>("Font1");
@@ -151,33 +156,37 @@ namespace SlXnaApp1
         /// </summary>
         private void OnUpdate(object sender, GameTimerEventArgs e)
         {
-            
 
-            
+
+
             TouchCollection touches = TouchPanel.GetState();
             foreach (TouchLocation loc in touches)
-            {                
+            {
                 if (loc.State == TouchLocationState.Pressed)
                 {
                     //clicPos.X = loc.Position.X - 150 / 2;
                     //clicPos.Y = loc.Position.Y - 150 / 2;
-                    Bal.GetMoveDir(new Vector2(loc.Position.X - 150 / 2, loc.Position.Y - 150 / 2));
-                    Bal.SendDates();
+                    Balls_mas[masItem].GetMoveDir(new Vector2(loc.Position.X - 150 / 2, loc.Position.Y - 150 / 2));
+                    Balls_mas[masItem].SendDates();
 
-                    Bal2.GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));
-                    Bal2.SendDates();
-                }                             
-                                  
+                    //Bal2.GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));
+                    //Bal2.SendDates();
+                }
 
-                
+
+
+            }
+
+            foreach (Balls b in Balls_mas)
+            {
+                b.MoveSprite(e);
             }
 
 
-            Bal.MoveSprite(e);
-            Bal2.MoveSprite(e);
+            //Bal2.MoveSprite(e);
             //origin += dir(clicPos, e)* (float)e.ElapsedTime.Milliseconds/30;
             //origin += dir(new Vector2(sDirection.X, sDirection.Y));
-            
+
 
         }
 
@@ -188,9 +197,11 @@ namespace SlXnaApp1
         {
             SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
-            spriteBatch.Draw(Circle, new Microsoft.Xna.Framework.Rectangle((int)(Bal.SpritePos.X), (int)(Bal.SpritePos.Y), 150, 150), Color.White);
-            spriteBatch.Draw(Circle, new Microsoft.Xna.Framework.Rectangle((int)(Bal2.SpritePos.X), (int)(Bal2.SpritePos.Y), 150, 150), Color.White);
+            foreach (Balls b in Balls_mas)
+            {
+                spriteBatch.Draw(Circle, new Microsoft.Xna.Framework.Rectangle((int)(b.SpritePos.X), (int)(b.SpritePos.Y), 150, 150), Color.White);
+            }
+            //spriteBatch.Draw(Circle, new Microsoft.Xna.Framework.Rectangle((int)(Bal2.SpritePos.X), (int)(Bal2.SpritePos.Y), 150, 150), Color.White);
             spriteBatch.DrawString(Font, SendTxt, new Vector2(0, 0), Color.White);
             //spriteBatch.Draw(Circle, new Microsoft.Xna.Framework.Rectangle((int)(sPostion.X), (int)(sPostion.Y), 150, 150), Color.White);
             //spriteBatch.Draw(Circle, sPostion,Color.White);
