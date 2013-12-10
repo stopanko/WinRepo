@@ -24,7 +24,7 @@ namespace SlXnaApp1
     public partial class GamePage : PhoneApplicationPage
     {
         public static int masItem;
-        public static int maxUsers;
+        public static int maxUsers;// = RoomReqListener.Maxusers;
         ContentManager contentManager;
         GameTimer timer;
         SpriteBatch spriteBatch;
@@ -33,6 +33,7 @@ namespace SlXnaApp1
         public string NameF;
 
         public static Balls[] Balls_mas = new Balls[2];
+        
         Texture2D Circle;
         //Vector2 origin = new Vector2(0, 0);
         //Vector2 indir = new Vector2();
@@ -48,8 +49,8 @@ namespace SlXnaApp1
         //Vector2 sPostion = new Vector2(0, 0);
         public static string SendTxt = "";
 
-        public Balls Bal = new Balls();
-        public Balls Bal2 = new Balls();
+        //public Balls Bal = new Balls();
+        //public Balls Bal2 = new Balls();
 
 
         public void Vect(UpdateEvent eventObj)
@@ -180,6 +181,7 @@ namespace SlXnaApp1
             foreach (Balls b in Balls_mas)
             {
                 b.MoveSprite(e);
+                Physics.FringePhysics(b);
             }
 
 

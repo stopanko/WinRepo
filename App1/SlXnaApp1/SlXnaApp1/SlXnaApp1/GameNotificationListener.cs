@@ -60,14 +60,15 @@ namespace SlXnaApp1
             //string j = System.Text.UTF8Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length);
            // _page.showResult("update recvd " + j );
 
-            //JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
+            JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
+            int it = int.Parse(jsonObj["Item"].ToString());
             //string name = System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length);
             //_page.showResult(name);
             //_game_page.SendTxt = "Send";
             //GameTimerEventArgs e;
             //_game_page.Vect(eventObj);
             //_game_page.dir(e, new Vector2(3,3)); 
-            _game_page.Bal.GetDates(eventObj);
+            GamePage.Balls_mas[it].GetDates(eventObj);
 
 
         }

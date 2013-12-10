@@ -26,7 +26,7 @@ namespace SlXnaApp1
     {
 
         public Vector2 SpritePos = new Vector2(0, 0);
-        private Vector2 Direction = new Vector2();
+        public Vector2 Direction = new Vector2();
         private Vector2 ClickPos = new Vector2();
         float speed = 5f;
 
@@ -34,7 +34,7 @@ namespace SlXnaApp1
 
         public static Vector2[] cPos;
         public static Vector2[] sPos;
-        public static int masItem; 
+        //public static int masItem; 
 
 
 
@@ -54,6 +54,8 @@ namespace SlXnaApp1
             //for (int i =0;i<)
             Direction = ClickPos - SpritePos;
             Direction.Normalize();
+            
+            
            
 
         }
@@ -72,7 +74,7 @@ namespace SlXnaApp1
             JObject sendObj = new JObject();
             sendObj.Add("X", this.ClickPos.X);
             sendObj.Add("Y", this.ClickPos.Y);
-            //sendObj.Add("Item", masItem);
+            sendObj.Add("Item", GamePage.masItem);
             //sendObj.Add("mas", mas.ToString());
             WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(sendObj.ToString()));//sendObj.ToString()));
         }
@@ -84,6 +86,7 @@ namespace SlXnaApp1
             JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
             ClickPos.X = int.Parse(jsonObj["X"].ToString());
             ClickPos.Y = int.Parse(jsonObj["Y"].ToString());
+            this.GetMoveDir(ClickPos);
             //cPos[int.Parse(jsonObj["Item"].ToString())].X = int.Parse(jsonObj["X"].ToString());
             //cPos[int.Parse(jsonObj["Item"].ToString())].Y = int.Parse(jsonObj["Y"].ToString());
            

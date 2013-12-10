@@ -76,25 +76,20 @@
     <Compile Include="AppServiceProvider.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\..\..\..\..\Users\ATOM\Desktop\Balls.cs">
-      <Link>Balls.cs</Link>
-    </Compile>
+    <Compile Include="Balls.cs" />
     <Compile Include="ConListen.cs" />
-    <Compile Include="..\..\..\..\..\Users\ATOM\Desktop\GameNotificationListener.cs">
-      <Link>GameNotificationListener.cs</Link>
-    </Compile>
+    <Compile Include="GameNotificationListener.cs" />
     <Compile Include="LobbyReqListen.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotificationListener.cs" />
+    <Compile Include="Physics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\..\..\..\..\Users\ATOM\Desktop\RoomReqListener.cs">
-      <Link>RoomReqListener.cs</Link>
-    </Compile>
+    <Compile Include="RoomReqListener.cs" />
     <Compile Include="ZoneReqListener.cs" />
   </ItemGroup>
   <ItemGroup>

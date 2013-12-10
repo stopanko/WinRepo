@@ -17,7 +17,7 @@ namespace SlXnaApp1
     public class RoomReqListener : com.shephertz.app42.gaming.multiplayer.client.listener.RoomRequestListener
     {
         private MainPage _page;
-
+        public static int Maxusers;
         public RoomReqListener(MainPage page)
         {
             _page = page;
@@ -55,11 +55,12 @@ namespace SlXnaApp1
         public void onGetLiveRoomInfoDone(LiveRoomInfoEvent eventObj)
         {
             _page.showResult("LiveRoominfo" + eventObj.getJoinedUsers().Length);
-            Balls.masItem = eventObj.getJoinedUsers().Length - 1;
-           
+            GamePage.masItem = eventObj.getJoinedUsers().Length - 1;
+            //Maxusers = int.Parse(eventObj.getData().getMaxUsers().ToString());
+            GamePage.maxUsers = int.Parse(eventObj.getData().getMaxUsers().ToString());
             //RoomData d = new RoomData("1995630518","1","s", 3);
-            Balls.cPos = new Microsoft.Xna.Framework.Vector2[eventObj.getData().getMaxUsers()];
-            Balls.sPos = new Microsoft.Xna.Framework.Vector2[eventObj.getData().getMaxUsers()];
+            //Balls.cPos = new Microsoft.Xna.Framework.Vector2[eventObj.getData().getMaxUsers()];
+            //Balls.sPos = new Microsoft.Xna.Framework.Vector2[eventObj.getData().getMaxUsers()];
             //_page.showResult("Max" + eventObj.getData().getMaxUsers().ToString());
         }
 
