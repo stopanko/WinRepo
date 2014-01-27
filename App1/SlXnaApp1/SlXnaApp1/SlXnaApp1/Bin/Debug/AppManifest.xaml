@@ -2,6 +2,7 @@
   <Deployment.Parts>
     <AssemblyPart x:Name="SlXnaApp1" Source="SlXnaApp1.dll" />
     <AssemblyPart x:Name="AppWarp_WP7_SDK" Source="AppWarp_WP7_SDK.dll" />
+    <AssemblyPart x:Name="FarseerPhysics WP7" Source="FarseerPhysics WP7.dll" />
     <AssemblyPart x:Name="Newtonsoft.Json.WindowsPhone" Source="Newtonsoft.Json.WindowsPhone.dll" />
     <AssemblyPart x:Name="SlXnaApp1Lib" Source="SlXnaApp1Lib.dll" />
   </Deployment.Parts>

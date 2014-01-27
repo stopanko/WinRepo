@@ -1,11 +1,11 @@
-﻿<xapCache source="C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="26.01.2014 0:42:44">
-  <file source="C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\Background.png" archivePath="Background.png" lastWriteTime="19.01.2014 15:44:37" />
-  <file source="C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\PhoneGameThumb.png" archivePath="PhoneGameThumb.png" lastWriteTime="19.01.2014 15:44:37" />
-  <file source="C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="19.01.2014 18:41:44" />
-  <file source="C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="19.01.2014 15:45:10" />
-  <file source="C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.dll" archivePath="PhysExp.dll" lastWriteTime="26.01.2014 0:42:44" />
-  <file source="C:\Users\ATOM\Desktop\Закачки\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\bin\Windows Phone\Debug\FarseerPhysics WP7.dll" archivePath="FarseerPhysics WP7.dll" lastWriteTime="28.12.2013 19:55:53" />
-  <file source="C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\CircleSprite.xnb" archivePath="Content\CircleSprite.xnb" lastWriteTime="19.01.2014 17:26:47" />
-  <file source="C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\Font1.xnb" archivePath="Content\Font1.xnb" lastWriteTime="19.01.2014 20:39:47" />
-  <file source="C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\1.xnb" archivePath="Content\1.xnb" lastWriteTime="21.01.2014 23:21:38" />
+﻿<xapCache source="C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="27.01.2014 21:15:26">
+  <file source="C:\WinRepo\PhysExp\PhysExp\PhysExp\Background.png" archivePath="Background.png" lastWriteTime="19.01.2014 15:44:37" />
+  <file source="C:\WinRepo\PhysExp\PhysExp\PhysExp\PhoneGameThumb.png" archivePath="PhoneGameThumb.png" lastWriteTime="19.01.2014 15:44:37" />
+  <file source="C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="19.01.2014 18:41:44" />
+  <file source="C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="19.01.2014 15:45:10" />
+  <file source="C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.dll" archivePath="PhysExp.dll" lastWriteTime="27.01.2014 21:15:24" />
+  <file source="C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\FarseerPhysics WP7.dll" archivePath="FarseerPhysics WP7.dll" lastWriteTime="28.12.2013 19:55:53" />
+  <file source="C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\CircleSprite.xnb" archivePath="Content\CircleSprite.xnb" lastWriteTime="27.01.2014 21:15:23" />
+  <file source="C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\1.xnb" archivePath="Content\1.xnb" lastWriteTime="27.01.2014 21:15:23" />
+  <file source="C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\Font1.xnb" archivePath="Content\Font1.xnb" lastWriteTime="27.01.2014 21:15:23" />
 </xapCache>

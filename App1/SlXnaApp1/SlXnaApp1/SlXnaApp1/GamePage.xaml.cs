@@ -13,11 +13,18 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
+//AppWarp
 using com.shephertz.app42.gaming.multiplayer.client.events;
 using com.shephertz.app42.gaming.multiplayer.client.command;
 using com.shephertz.app42.gaming.multiplayer.client;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+//
+//farseer
+using FarseerPhysics.Dynamics;
+using FarseerPhysics.Factories;
+using FarseerPhysics.Common;
+//
 
 namespace SlXnaApp1
 {
@@ -55,7 +62,7 @@ namespace SlXnaApp1
             WarpClient game = WarpClient.GetInstance();
             game.AddNotificationListener(new GameNotificationListener(this));
 
-
+            
 
             // Get the content manager from the application
             contentManager = (Application.Current as App).Content;

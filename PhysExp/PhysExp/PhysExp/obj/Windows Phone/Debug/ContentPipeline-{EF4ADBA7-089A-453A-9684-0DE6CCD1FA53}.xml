@@ -7,17 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\CircleSprite.xnb</Output>
+      <Output>C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\CircleSprite.xnb</Output>
       <Time>2014-01-19T17:25:03.5728231+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Font1.spritefont</Source>
-      <Name>Font1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\Font1.xnb</Output>
-      <Time>2014-01-19T20:37:05.6078458+02:00</Time>
     </Item>
     <Item>
       <Source>1.png</Source>
@@ -25,8 +16,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\1.xnb</Output>
+      <Output>C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\1.xnb</Output>
       <Time>2014-01-21T23:16:27.9273992+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Font1.spritefont</Source>
+      <Name>Font1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\Font1.xnb</Output>
+      <Time>2014-01-19T20:37:05.6078458+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -35,10 +35,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExpContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\WinRepo\PhysExp\PhysExp\PhysExpContent\</RootDirectory>
+      <LoggerRootDirectory>C:\WinRepo\PhysExp\PhysExp\PhysExp\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\WinRepo\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

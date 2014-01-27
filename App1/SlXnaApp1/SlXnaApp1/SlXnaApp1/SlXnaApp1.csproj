@@ -52,6 +52,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\..\..\Desktop\Tutorials_WP_7_8-master\Tutorials_WP_7_8-master\TicTacToeAppWarp\Bin\Debug\AppWarp_WP7_SDK.dll</HintPath>
     </Reference>
+    <Reference Include="FarseerPhysics WP7">
+      <HintPath>..\..\..\..\..\Users\ATOM\Desktop\Закачки\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\bin\Windows Phone\Debug\FarseerPhysics WP7.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Microsoft.Xna.Framework" />
@@ -78,6 +81,7 @@
     </Compile>
     <Compile Include="Balls.cs" />
     <Compile Include="ConListen.cs" />
+    <Compile Include="ConvertUnits.cs" />
     <Compile Include="GameNotificationListener.cs" />
     <Compile Include="LobbyReqListen.cs" />
     <Compile Include="MainPage.xaml.cs">

@@ -1,1 +1,2 @@
 C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExpContent\obj\Windows Phone\Debug\PhysExpContent.contentprojResolveAssemblyReference.cache
+C:\WinRepo\PhysExp\PhysExp\PhysExpContent\obj\Windows Phone\Debug\PhysExpContent.contentprojResolveAssemblyReference.cache
