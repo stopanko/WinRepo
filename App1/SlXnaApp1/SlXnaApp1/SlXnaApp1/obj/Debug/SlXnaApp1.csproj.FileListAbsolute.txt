@@ -38,3 +38,4 @@ C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\MainPage.g.i.cs
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\GamePage.g.i.cs
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\FarseerPhysics WP7.dll
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\FarseerPhysics WP7.pdb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\CircleSprite.xnb

@@ -28,7 +28,7 @@ namespace SlXnaApp1
         {
             InitializeComponent();
 
-            
+            //settings винести в окремий клас
             WarpClient.initialize("c27b5f96a94fe0e53183643fd1221af45ccbd94894201a0a51eacd5694bf0d36", "9dc629fdd584be0922cf38415057d1d80868a03ca60ac51c7048b68696a4ff4e");
             WarpClient game = WarpClient.GetInstance();
             game.AddConnectionRequestListener(new ConListen(this));
@@ -72,7 +72,7 @@ namespace SlXnaApp1
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            
+            //settings винести в окремий клас
             WarpClient.GetInstance().JoinRoom("1995630518");
             WarpClient.GetInstance().SubscribeRoom("1995630518");
             WarpClient.GetInstance().GetLiveRoomInfo("1995630518");

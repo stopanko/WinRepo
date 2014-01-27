@@ -85,8 +85,8 @@ namespace PhysExp
             
             Font = Content.Load<SpriteFont>("Font1");
 
-            _world = new World(new Vector2(0, 0));
-
+            _world = new World(new Vector2(1, 0));
+             
             _circleSprite = Content.Load<Texture2D>("CircleSprite");//завантажуємо текстуру
             _1 = Content.Load<Texture2D>("1");
             _circleCenter = ConvertUnits.ToSimUnits(new Vector2(_circleSprite.Width / 2f, _circleSprite.Height / 2f));//знаходимо центр текстури

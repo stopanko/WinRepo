@@ -30,9 +30,3 @@ C:\WinRepo\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\WMAppManifest.xml.g
 C:\WinRepo\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\WMAppManifest.xml
 C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.xap
 C:\WinRepo\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\XapCacheFile.xml
-C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.xap
-C:\WinRepo\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\XapCacheFile.xml
-C:\WinRepo\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\AppManifest.xaml
-C:\WinRepo\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\WMAppManifest.xml.g
-C:\WinRepo\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\WMAppManifest.xml
-bin\Windows Phone\Debug\

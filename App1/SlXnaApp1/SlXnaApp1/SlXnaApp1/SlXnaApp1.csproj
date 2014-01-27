@@ -79,7 +79,7 @@
     <Compile Include="AppServiceProvider.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Balls.cs" />
+    <Compile Include="Ball.cs" />
     <Compile Include="ConListen.cs" />
     <Compile Include="ConvertUnits.cs" />
     <Compile Include="GameNotificationListener.cs" />
