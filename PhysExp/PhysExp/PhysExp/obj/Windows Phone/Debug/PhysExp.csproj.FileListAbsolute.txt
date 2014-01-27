@@ -1,0 +1,23 @@
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.dll
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.pdb
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\PhysExp.dll
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\PhysExp.pdb
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\AppManifest.xaml
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\WMAppManifest.xml.g
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\WMAppManifest.xml
+bin\Windows Phone\Debug\
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.xap
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\XapCacheFile.xml
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\PhysExp.csprojResolveAssemblyReference.cache
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\CircleSprite.xnb
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\FarseerPhysics WP7.dll
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\FarseerPhysics WP7.pdb
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\Font1.xnb
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\Content\1.xnb
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\PhysExp.xap
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\XapCacheFile.xml
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\bin\Windows Phone\Debug\AppManifest.xaml
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\WMAppManifest.xml.g
+C:\Users\ATOM\Desktop\PhysExp\PhysExp\PhysExp\obj\Windows Phone\Debug\WMAppManifest.xml
+bin\Windows Phone\Debug\
