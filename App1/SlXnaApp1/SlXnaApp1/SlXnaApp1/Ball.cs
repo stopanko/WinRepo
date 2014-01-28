@@ -40,7 +40,7 @@ namespace SlXnaApp1
 {
     public class Ball
     {
-        public World _world = new World(new Vector2(0, 0));
+        //public World _world = new World(new Vector2(0, 0));
         //ball settings
         private Body _circleBody;
         private Texture2D _circleSprite;
@@ -50,7 +50,7 @@ namespace SlXnaApp1
         private Vector2 _direction = new Vector2();
         //
 
-        public Vector2 SpritePos = new Vector2(0, 0);
+        //public Vector2 SpritePos = new Vector2(0, 0);
         
         
         //float speed = 5f;
@@ -66,11 +66,11 @@ namespace SlXnaApp1
 
         //List<Vector2> Ballslist = new List<Vector2>();
 
-        public void InitBallContent(ContentManager contentManager)
+        public void InitBallContent(int i)//передаємо і щоб шари не накладалися
         {
-            _circleSprite = contentManager.Load<Texture2D>("CircleSprite"); //текстура
+            _circleSprite = GamePage.contentManager.Load<Texture2D>("CircleSprite"); //текстура
             _circleCenter = ConvertUnits.ToSimUnits(new Vector2(_circleSprite.Width / 2f, _circleSprite.Height / 2f));//знаходимо центр текстури
-            _circleBody = BodyFactory.CreateCircle(_world, ConvertUnits.ToSimUnits(_circleSprite.Height / 2f), 1f, ConvertUnits.ToSimUnits(new Vector2(10, 10))); // (світ, радіус(визнач за текстурою), шось,початкова позиція тіла)
+            _circleBody = BodyFactory.CreateCircle(GamePage._world, ConvertUnits.ToSimUnits(_circleSprite.Height / 2f), 1f, ConvertUnits.ToSimUnits(new Vector2((i + 1) * 10, 10))); // (світ, радіус(визнач за текстурою), шось,початкова позиція тіла)
             _circleBody.BodyType = BodyType.Dynamic;
             _circleBody.Restitution = 0.8f;
             _circleBody.Friction = 0.5f;
@@ -79,7 +79,8 @@ namespace SlXnaApp1
         public void GetMoveDir(Vector2 ClickPos)//передамо вектор кліку
         {
             //Vector2 ClickPos = new Vector2(loc.X, loc.Y);
-            Vector2 DiffDist = ClickPos - ConvertUnits.ToDisplayUnits(_circleBody.Position); // шукає різницю між позицією кліку та позицією шару для того, щоб побудувати вектор в напрямку кліку з початку коордтнат.
+            _clickPos = ClickPos;
+            Vector2 DiffDist = _clickPos - ConvertUnits.ToDisplayUnits(_circleBody.Position); // шукає різницю між позицією кліку та позицією шару для того, щоб побудувати вектор в напрямку кліку з початку коордтнат.
             //double distance = Math.Sqrt(Math.Pow(_circleBody.Position.X - ClickPos.X, 2) + Math.Pow(_circleBody.Position.Y - ClickPos.Y, 2));
             double Distance = Math.Sqrt(Math.Pow(DiffDist.X, 2) + Math.Pow(DiffDist.Y, 2));//  дистанція нового кліку
             double match = Distance / _speed; // взнаємо в скільки раз відстань між шаром та кліком менша від потрібної швидкості
@@ -113,7 +114,9 @@ namespace SlXnaApp1
             JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
             _clickPos.X = int.Parse(jsonObj["X"].ToString());
             _clickPos.Y = int.Parse(jsonObj["Y"].ToString());
-            this.GetMoveDir(_clickPos);       
+            this.GetMoveDir(_clickPos);
+            this.MoveBall();
+            
  
         }
 

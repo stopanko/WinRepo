@@ -11,15 +11,6 @@
       <Time>2013-11-30T19:34:11.6006217+02:00</Time>
     </Item>
     <Item>
-      <Source>Font1.spritefont</Source>
-      <Name>Font1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\Font1.xnb</Output>
-      <Time>2013-11-30T19:34:11.5898664+02:00</Time>
-    </Item>
-    <Item>
       <Source>CircleSprite.png</Source>
       <Name>CircleSprite</Name>
       <Importer>TextureImporter</Importer>
@@ -27,6 +18,15 @@
       <Options>None</Options>
       <Output>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\CircleSprite.xnb</Output>
       <Time>2014-01-27T23:04:38.11589+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Font1.spritefont</Source>
+      <Name>Font1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\Font1.xnb</Output>
+      <Time>2013-11-30T19:34:11.5898664+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
