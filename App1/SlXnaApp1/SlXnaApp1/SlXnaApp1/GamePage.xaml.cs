@@ -35,12 +35,12 @@ namespace SlXnaApp1
         //settings винести в окремий клас
         public static int masItem;
         public static int maxUsers = 2;// = RoomReqListener.Maxusers;
-        public static World _world; // світ з початковою гравітацією
+        //public static World _world; // світ з початковою гравітацією
         float width;
         float height;
         private Body borderBody;
         //
-
+        Ball B = new Ball();
         //standart
         public static ContentManager contentManager;
         GameTimer timer;
@@ -53,9 +53,9 @@ namespace SlXnaApp1
 
         public static Ball[] Balls_mas = new Ball[maxUsers];
         
-        Texture2D Circle;
+        //Texture2D Circle;
         
-        SpriteFont Font;
+        //SpriteFont Font;
         
         public static string SendTxt = " ";
 
@@ -70,7 +70,7 @@ namespace SlXnaApp1
         {
             InitializeComponent();
             // initial word dates винести в клас
-            _world = new World(new Vector2(10, 0));
+            //_world = new World(new Vector2(0, 0));
             ConvertUnits.SetDisplayUnitToSimUnitRatio(64f);
             width = ConvertUnits.ToSimUnits(800);
             height = ConvertUnits.ToSimUnits(480);
@@ -99,8 +99,8 @@ namespace SlXnaApp1
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(SharedGraphicsDeviceManager.Current.GraphicsDevice);
-            
 
+            B.InitBallContent(contentManager);
             //винести в настройки світу
             Vertices borders = new Vertices(4);
             borders.Add(new Vector2(0, 0));
@@ -108,16 +108,16 @@ namespace SlXnaApp1
             borders.Add(new Vector2(width, height));
             borders.Add(new Vector2(0, height));
 
-            borderBody = BodyFactory.CreateLoopShape(_world, borders);
+            borderBody = BodyFactory.CreateLoopShape(B._world, borders);
             borderBody.CollisionCategories = Category.All;
             borderBody.CollidesWith = Category.All;
             //
 
             for (int i = 0; i < maxUsers; i++)
             {
-                Ball b = new Ball();
-                b.InitBallContent();
-                Balls_mas[i] = b;// new Balls() ;
+                //Ball b = new Ball();
+                //b.InitBallContent();
+                //Balls_mas[i] = b;// new Balls() ;
             }
             // TODO: use this.content to load your game content here
             //Circle = contentManager.Load<Texture2D>("ball");
@@ -154,10 +154,12 @@ namespace SlXnaApp1
                 if (loc.State == TouchLocationState.Pressed)
                 {
                     
-                    Balls_mas[masItem].GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));
-                    Balls_mas[masItem].SendDates();
-                    Balls_mas[masItem].MoveBall();
-                    
+                    //Balls_mas[masItem].GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));
+                    //Balls_mas[masItem].SendDates();
+                    //Balls_mas[masItem].MoveBall();
+
+                    B.GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));
+                    B.MoveBall();
                 }
 
 
@@ -172,9 +174,9 @@ namespace SlXnaApp1
                 //b.MoveBall(e);
                 //Physics.FringePhysics(b);
             }
-            
 
 
+            B._world.Step(0.033333f);
         }
 
         /// <summary>
@@ -187,9 +189,10 @@ namespace SlXnaApp1
             foreach (Ball b in Balls_mas)
             {
                 //spriteBatch.Draw(Circle, new Microsoft.Xna.Framework.Rectangle((int)(b.SpritePos.X), (int)(b.SpritePos.Y), 150, 150), Color.White);
-                b.DrawBall(spriteBatch);
+                //b.DrawBall(spriteBatch);
+                
             }
-           
+            B.DrawBall(spriteBatch);
             //spriteBatch.DrawString(Font, SendTxt, new Vector2(10, 10), Color.White);
             spriteBatch.End();
             // TODO: Add your drawing code here

@@ -52,7 +52,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\..\..\Desktop\Tutorials_WP_7_8-master\Tutorials_WP_7_8-master\TicTacToeAppWarp\Bin\Debug\AppWarp_WP7_SDK.dll</HintPath>
     </Reference>
-    <Reference Include="FarseerPhysics WP7">
+    <Reference Include="FarseerPhysics WP7, Version=3.5.0.2271, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Users\ATOM\Desktop\Закачки\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\bin\Windows Phone\Debug\FarseerPhysics WP7.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone" />

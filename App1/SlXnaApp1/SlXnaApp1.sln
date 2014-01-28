@@ -5,7 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlXnaApp1", "SlXnaApp1\SlXn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlXnaApp1Lib", "SlXnaApp1\SlXnaApp1Lib\SlXnaApp1Lib.csproj", "{933A5F69-8EF9-42BA-AD3B-E529945C94A9}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "SlXnaApp1LibContent", "SlXnaApp1\SlXnaApp1LibContent\SlXnaApp1LibContent.contentproj", "{AD9726E7-DE94-4BC4-96C9-0B535411ED97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlXnaApp1LibContent", "SlXnaApp1\SlXnaApp1LibContent\SlXnaApp1LibContent.contentproj", "{AD9726E7-DE94-4BC4-96C9-0B535411ED97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer Physics WP7", "..\..\..\Users\ATOM\Desktop\Закачки\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\Farseer Physics WP7.csproj", "{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,16 @@ Global
 		{AD9726E7-DE94-4BC4-96C9-0B535411ED97}.Release|Any CPU.ActiveCfg = Release|Windows Phone
 		{AD9726E7-DE94-4BC4-96C9-0B535411ED97}.Release|Mixed Platforms.ActiveCfg = Release|Windows Phone
 		{AD9726E7-DE94-4BC4-96C9-0B535411ED97}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Debug|Any CPU.ActiveCfg = Debug|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Debug|Mixed Platforms.ActiveCfg = Debug|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Debug|Mixed Platforms.Build.0 = Debug|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Release|Any CPU.ActiveCfg = Release|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Release|Mixed Platforms.ActiveCfg = Release|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Release|Mixed Platforms.Build.0 = Release|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{4DA8DC0C-EC1E-4C31-8B00-9C0DB87C5D0A}.Release|Windows Phone.Build.0 = Release|Windows Phone
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
