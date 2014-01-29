@@ -95,6 +95,7 @@
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="RoomReqListener.cs" />
+    <Compile Include="WorldSet.cs" />
     <Compile Include="ZoneReqListener.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -66,11 +66,11 @@ namespace SlXnaApp1
 
         //List<Vector2> Ballslist = new List<Vector2>();
 
-        public void InitBallContent(int i)//передаємо і щоб шари не накладалися
+        public void InitBallContent(int i, World _world)//передаємо і щоб шари не накладалися
         {
             _circleSprite = GamePage.contentManager.Load<Texture2D>("CircleSprite"); //текстура
             _circleCenter = ConvertUnits.ToSimUnits(new Vector2(_circleSprite.Width / 2f, _circleSprite.Height / 2f));//знаходимо центр текстури
-            _circleBody = BodyFactory.CreateCircle(GamePage._world, ConvertUnits.ToSimUnits(_circleSprite.Height / 2f), 1f, ConvertUnits.ToSimUnits(new Vector2((i + 1) * 10, 10))); // (світ, радіус(визнач за текстурою), шось,початкова позиція тіла)
+            _circleBody = BodyFactory.CreateCircle(_world, ConvertUnits.ToSimUnits(_circleSprite.Height / 2f), 1f, ConvertUnits.ToSimUnits(new Vector2((i + 1) * 10, 10))); // (світ, радіус(визнач за текстурою), шось,початкова позиція тіла)
             _circleBody.BodyType = BodyType.Dynamic;
             _circleBody.Restitution = 0.8f;
             _circleBody.Friction = 0.5f;
