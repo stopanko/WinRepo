@@ -9,6 +9,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Xna.Framework;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 //farseer
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
@@ -23,6 +25,7 @@ namespace SlXnaApp1
         float width;
         float height;
         private Body borderBody;
+        
 
         public void InitWorld()
         {

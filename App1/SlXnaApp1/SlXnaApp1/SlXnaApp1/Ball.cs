@@ -46,12 +46,12 @@ namespace SlXnaApp1
         private Texture2D _circleSprite;
         private Vector2 _circleCenter; // центр текстури для методу Draw
         private float _speed = 48;
-        private Vector2 _clickPos = new Vector2();
+        private Vector2 _clickPos = new Vector2(0, 0);
         private Vector2 _direction = new Vector2();
         //
-
-        //public Vector2 SpritePos = new Vector2(0, 0);
         
+        //public Vector2 SpritePos = new Vector2(0, 0);
+        private JObject _jsonObj = new JObject();
         
         //float speed = 5f;
 
@@ -74,6 +74,8 @@ namespace SlXnaApp1
             _circleBody.BodyType = BodyType.Dynamic;
             _circleBody.Restitution = 0.8f;
             _circleBody.Friction = 0.5f;
+            GetMoveDir(_circleBody.Position); //////////!!!!!!!!!!!!!!!!!!!!!!!!
+            SendDates(); // initial Jobj
         }
 
         public void GetMoveDir(Vector2 ClickPos)//передамо вектор кліку
@@ -98,26 +100,39 @@ namespace SlXnaApp1
 
         public void SendDates()
         {
+
+            _jsonObj.RemoveAll();
+            _jsonObj.Add("X", this._clickPos.X);
+            _jsonObj.Add("Y", this._clickPos.Y);
+
+            _jsonObj.Add("Item", GamePage.masItem);
+
+            _jsonObj.Add("PosX", this._circleBody.Position.X.ToString());
+            _jsonObj.Add("PosY", this._circleBody.Position.Y.ToString());
+            WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jsonObj.ToString()));//sendObj.ToString()));
+            //_jsonObj.RemoveAll();
             
-            JObject sendObj = new JObject();
-            sendObj.Add("X", this._clickPos.X);
-            sendObj.Add("Y", this._clickPos.Y);
-            sendObj.Add("Item", GamePage.masItem);
-            
-            WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(sendObj.ToString()));//sendObj.ToString()));
         }
 
 
-        public void GetDates(UpdateEvent eventObj)
+        public void GetDates(JObject jsonObj)
         {
 
-            JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
-            _clickPos.X = int.Parse(jsonObj["X"].ToString());
-            _clickPos.Y = int.Parse(jsonObj["Y"].ToString());
+            _jsonObj = jsonObj;
+            _clickPos.X = float.Parse(_jsonObj["X"].ToString());
+            _clickPos.Y = float.Parse(_jsonObj["Y"].ToString());
             this.GetMoveDir(_clickPos);
             this.MoveBall();
+            //_circleBody.Position = new Vector2((float)((_circleBody.Position.X + float.Parse(jsonObj["PosX"].ToString())) * 0.5), (float)((_circleBody.Position.Y + float.Parse(jsonObj["PosY"].ToString())) * 0.5));//(_circleBody.Position + new Vector2(, float.Parse(jsonObj["PosY"].ToString()))); 
+            ////////////////////////////////////////////////
+            double targetX = (_circleBody.Position.X + float.Parse(_jsonObj["PosX"].ToString())) * 0.5;
+            double targetY = (_circleBody.Position.Y + float.Parse(_jsonObj["PosY"].ToString())) * 0.5;
+            double errorX = targetX - _circleBody.Position.X;
+            double errorY = targetY - _circleBody.Position.Y;
+            _circleBody.ApplyForce(new Vector2((float)(1 * errorX), (float)(1 * errorY)));
+
+            //_circleBody.Position = new Vector2((float)((float.Parse(_jsonObj["PosX"].ToString()))), (float)((float.Parse(_jsonObj["PosY"].ToString()))));//(_circleBody.Position + new Vector2(, float.Parse(jsonObj["PosY"].ToString()))); 
             
- 
         }
 
         public void DrawBall(SpriteBatch spriteBatch)

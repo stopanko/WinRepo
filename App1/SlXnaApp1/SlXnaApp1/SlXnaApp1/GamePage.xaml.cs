@@ -40,7 +40,13 @@ namespace SlXnaApp1
         //float height;
         //private Body borderBody;
         //
-        WorldSet Ws = new WorldSet();
+        SpriteFont font;
+        GameTime t = new GameTime();
+        float time;
+        //настройки світу
+        public static WorldSet Ws = new WorldSet();
+        //
+        
         //standart
         public static ContentManager contentManager;
         GameTimer timer;
@@ -54,7 +60,7 @@ namespace SlXnaApp1
         
         
         
-        public static string SendTxt = " ";
+        public static string Txt = " ";
 
         
 
@@ -108,7 +114,7 @@ namespace SlXnaApp1
             //borders.Add(new Vector2(width, 0));
             //borders.Add(new Vector2(width, height));
             //borders.Add(new Vector2(0, height));
-
+            font = contentManager.Load<SpriteFont>("Font1");
             //borderBody = BodyFactory.CreateLoopShape(_world, borders);
             //borderBody.CollisionCategories = Category.All;
             //borderBody.CollidesWith = Category.All;
@@ -156,8 +162,19 @@ namespace SlXnaApp1
                 }
             }
             
+               
+            time += float.Parse(e.ElapsedTime.TotalMilliseconds.ToString());
+            if (time / 1000 >= 0.1)
+            {
+                //Balls_mas[masItem].SendDates();
+                time = 0;
+ 
+            }
 
-
+            if (masItem == 1)
+            {
+ 
+            }
             Ws._world.Step(0.033333f);
         }
 
@@ -174,7 +191,7 @@ namespace SlXnaApp1
                 b.DrawBall(spriteBatch);
                 
             }
-            
+            spriteBatch.DrawString(font, time.ToString(), new Vector2(0,0), Color.Red);
             spriteBatch.End();
             // TODO: Add your drawing code here
         }
