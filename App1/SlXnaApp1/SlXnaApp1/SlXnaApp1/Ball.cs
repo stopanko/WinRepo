@@ -51,7 +51,9 @@ namespace SlXnaApp1
         //
         
         //public Vector2 SpritePos = new Vector2(0, 0);
-        private JObject _jsonObj = new JObject();
+        private JObject _jsonClick = new JObject();
+        private JObject _jsonPos = new JObject();
+        public JObject _getObj = new JObject();
         
         //float speed = 5f;
 
@@ -100,39 +102,65 @@ namespace SlXnaApp1
 
         public void SendDates()
         {
+            
+            _jsonClick.RemoveAll();
+            _jsonClick.Add("X", this._clickPos.X);
+            _jsonClick.Add("Y", this._clickPos.Y);
+            
+            _jsonClick.Add("Item", GamePage.masItem);
+            //_jsonClick.Add("Type", 1);//click
 
-            _jsonObj.RemoveAll();
-            _jsonObj.Add("X", this._clickPos.X);
-            _jsonObj.Add("Y", this._clickPos.Y);
-
-            _jsonObj.Add("Item", GamePage.masItem);
-
-            _jsonObj.Add("PosX", this._circleBody.Position.X.ToString());
-            _jsonObj.Add("PosY", this._circleBody.Position.Y.ToString());
-            WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jsonObj.ToString()));//sendObj.ToString()));
+            _jsonClick.Add("PosX", this._circleBody.Position.X.ToString());
+            _jsonClick.Add("PosY", this._circleBody.Position.Y.ToString());
+            WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jsonClick.ToString()));//sendObj.ToString()));
             //_jsonObj.RemoveAll();
             
+        }
+
+        public void SendPos()
+        {
+            //_jsonPos.RemoveAll();
+            ////_jsonPos.Add("X", this._clickPos.X);
+            ////_jsonPos.Add("Y", this._clickPos.Y);
+            //_jsonPos.Add("Type", 2);//Pos
+            //_jsonPos.Add("Item", GamePage.masItem);
+            //_jsonPos.Add("PosX", this._circleBody.Position.X.ToString());
+            //_jsonPos.Add("PosY", this._circleBody.Position.Y.ToString());
+            //WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jsonPos.ToString()));
         }
 
 
         public void GetDates(JObject jsonObj)
         {
 
-            _jsonObj = jsonObj;
-            _clickPos.X = float.Parse(_jsonObj["X"].ToString());
-            _clickPos.Y = float.Parse(_jsonObj["Y"].ToString());
+            //_jsonObj = jsonObj;
+            _clickPos.X = float.Parse(jsonObj["X"].ToString());
+            _clickPos.Y = float.Parse(jsonObj["Y"].ToString());
             this.GetMoveDir(_clickPos);
             this.MoveBall();
             //_circleBody.Position = new Vector2((float)((_circleBody.Position.X + float.Parse(jsonObj["PosX"].ToString())) * 0.5), (float)((_circleBody.Position.Y + float.Parse(jsonObj["PosY"].ToString())) * 0.5));//(_circleBody.Position + new Vector2(, float.Parse(jsonObj["PosY"].ToString()))); 
             ////////////////////////////////////////////////
-            double targetX = (_circleBody.Position.X + float.Parse(_jsonObj["PosX"].ToString())) * 0.5;
-            double targetY = (_circleBody.Position.Y + float.Parse(_jsonObj["PosY"].ToString())) * 0.5;
-            double errorX = targetX - _circleBody.Position.X;
-            double errorY = targetY - _circleBody.Position.Y;
-            _circleBody.ApplyForce(new Vector2((float)(1 * errorX), (float)(1 * errorY)));
+            //double targetX = (_circleBody.Position.X + float.Parse(jsonObj["PosX"].ToString())) * 0.5;
+            //double targetY = (_circleBody.Position.Y + float.Parse(jsonObj["PosY"].ToString())) * 0.5;
+            //double errorX = targetX - _circleBody.Position.X;
+            //double errorY = targetY - _circleBody.Position.Y;
+            //_circleBody.ApplyForce(new Vector2((float)(1 * errorX), (float)(1 * errorY)));
 
             //_circleBody.Position = new Vector2((float)((float.Parse(_jsonObj["PosX"].ToString()))), (float)((float.Parse(_jsonObj["PosY"].ToString()))));//(_circleBody.Position + new Vector2(, float.Parse(jsonObj["PosY"].ToString()))); 
             
+        }
+
+
+        public void GetPos()//JObject jsonObj)
+        {
+            //_getObj = jsonObj;
+            //double targetX = (_circleBody.Position.X + float.Parse(jsonObj["PosX"].ToString())) * 0.5;
+            //double targetY = (_circleBody.Position.Y + float.Parse(jsonObj["PosY"].ToString())) * 0.5;
+            //double errorX = targetX - _circleBody.Position.X;
+            //double errorY = targetY - _circleBody.Position.Y;
+            //_circleBody.ApplyForce(new Vector2((float)(1 * errorX), (float)(1 * errorY)));
+            //_circleBody.Position = new Vector2(float.Parse(_getObj["PosX"].ToString()), float.Parse(_getObj["PosY"].ToString()));
+
         }
 
         public void DrawBall(SpriteBatch spriteBatch)

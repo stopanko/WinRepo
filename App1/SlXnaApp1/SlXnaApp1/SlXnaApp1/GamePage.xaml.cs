@@ -43,6 +43,7 @@ namespace SlXnaApp1
         SpriteFont font;
         GameTime t = new GameTime();
         float time;
+        public static List<JObject> DatesList = new List<JObject>();
         //настройки світу
         public static WorldSet Ws = new WorldSet();
         //
@@ -161,12 +162,39 @@ namespace SlXnaApp1
                     Balls_mas[masItem].SendDates();                    
                 }
             }
+
+
+            //Os.ForEach(
+            //    delegate(Type o)
+            //    {
+            //        if (!o.cond) Os.Remove(o);
+            //    }
+            //    );
+
+
+            DatesList.ForEach(
+                delegate(JObject Jo)
+                {
+                    if ((int)Jo["Item"] != masItem)
+                    {
+                        GamePage.Balls_mas[(int)Jo["Item"]].GetDates(Jo);
+                    }
+                    GamePage.DatesList.Remove(Jo);
+                    
+                }
+                );
+
+            //foreach (JObject Jo in GamePage.DatesList)
+            //{
+            //    GamePage.Balls_mas[(int)Jo["Item"]].GetDates(Jo);
+            //    GamePage.DatesList.Remove(Jo);
+            //}
             
                
             time += float.Parse(e.ElapsedTime.TotalMilliseconds.ToString());
             if (time / 1000 >= 0.1)
             {
-                //Balls_mas[masItem].SendDates();
+                Balls_mas[masItem].SendDates();   
                 time = 0;
  
             }

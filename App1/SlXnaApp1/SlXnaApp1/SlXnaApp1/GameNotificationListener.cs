@@ -59,19 +59,32 @@ namespace SlXnaApp1
         {
             //string j = System.Text.UTF8Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length);
            // _page.showResult("update recvd " + j );
-            JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
             //JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
-            int it = int.Parse(jsonObj["Item"].ToString());
+            //JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
+            GamePage.DatesList.Add(JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length)));
+           
+            
+            //JObject _GetObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
+            //int it = int.Parse(_GetObj["Item"].ToString());
+            //int type = int.Parse(_GetObj["Type"].ToString());
             //string name = System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length);
             //_page.showResult(name);
             //_game_page.SendTxt = "Send";
             //GameTimerEventArgs e;
             //_game_page.Vect(eventObj);
             //_game_page.dir(e, new Vector2(3,3)); 
-            if (it != GamePage.masItem)
-            {
-                GamePage.Balls_mas[it].GetDates(jsonObj);
-            }
+            //if (it != GamePage.masItem)
+            //{
+                //if (type == 1)
+                //{
+                //    GamePage.Balls_mas[it].GetClick(Ball._getObj);
+                //}
+                //else
+                //{
+            //GamePage.Balls_mas[it]._getObj = _GetObj;
+            //GamePage.Balls_mas[it].GetPos();
+                //}
+            //}
 
 
         }
