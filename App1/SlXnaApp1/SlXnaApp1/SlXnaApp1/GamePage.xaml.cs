@@ -39,10 +39,12 @@ namespace SlXnaApp1
         //float width;
         //float height;
         //private Body borderBody;
+        int timeCount = 1;
+        bool Draw = false;
         //
         SpriteFont font;
         GameTime t = new GameTime();
-        float time;
+        public static float time = 0;
         public static List<JObject> DatesList = new List<JObject>();
         //настройки світу
         public static WorldSet Ws = new WorldSet();
@@ -159,7 +161,7 @@ namespace SlXnaApp1
                 {
                     Balls_mas[masItem].GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));                    
                     Balls_mas[masItem].MoveBall(); ////////перевірити в якому порядку методи краще викликати
-                    Balls_mas[masItem].SendDates();                    
+                    Balls_mas[masItem].SendDates("Click");//Only click send                    
                 }
             }
 
@@ -175,10 +177,9 @@ namespace SlXnaApp1
             DatesList.ForEach(
                 delegate(JObject Jo)
                 {
-                    if ((int)Jo["Item"] != masItem)
-                    {
-                        GamePage.Balls_mas[(int)Jo["Item"]].GetDates(Jo);
-                    }
+                    
+                    GamePage.Balls_mas[(int)Jo["Item"]].GetDates(Jo);// приймаємо данф на вторинній копії
+                    //}
                     GamePage.DatesList.Remove(Jo);
                     
                 }
@@ -192,17 +193,17 @@ namespace SlXnaApp1
             
                
             time += float.Parse(e.ElapsedTime.TotalMilliseconds.ToString());
-            if (time / 1000 >= 0.1)
+
+            if (time / (1000 * timeCount) >= 0.3)
             {
-                Balls_mas[masItem].SendDates();   
-                time = 0;
+                //Draw = true;
+                Balls_mas[masItem].SendDates("St");//Send dates до вторинної копії з сервера на другому тедефоні   
+                //time = 0;
+                timeCount++;               
  
             }
 
-            if (masItem == 1)
-            {
- 
-            }
+            
             Ws._world.Step(0.033333f);
         }
 
@@ -219,7 +220,13 @@ namespace SlXnaApp1
                 b.DrawBall(spriteBatch);
                 
             }
-            spriteBatch.DrawString(font, time.ToString(), new Vector2(0,0), Color.Red);
+            spriteBatch.DrawString(font, time.ToString() + "  " + timeCount.ToString(), new Vector2(0,0), Color.Red);
+            //if (Draw == true)
+            //{
+                spriteBatch.DrawString(font, (Balls_mas[masItem].Q/1000).ToString(), new Vector2(100, 100), Color.Black);
+            //    Draw = false;
+ 
+            //}
             spriteBatch.End();
             // TODO: Add your drawing code here
         }

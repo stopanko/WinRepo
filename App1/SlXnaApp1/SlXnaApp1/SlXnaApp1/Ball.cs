@@ -51,18 +51,23 @@ namespace SlXnaApp1
         //
         
         //public Vector2 SpritePos = new Vector2(0, 0);
-        private JObject _jsonClick = new JObject();
-        private JObject _jsonPos = new JObject();
-        public JObject _getObj = new JObject();
+        private JObject _jObj = new JObject();
+        //private float _time;
+        //private JObject _jsonPos = new JObject();
+        //public JObject _getObj = new JObject();
         
         //float speed = 5f;
 
-        string[] Mas = new string[2];
+        //string[] Mas = new string[2];
 
         //public static Vector2[] cPos;
         //public static Vector2[] sPos;
         //public static int masItem; 
-
+        
+        //Timer senhron
+        public float Q = 0;
+        public float Delt = 0;
+        //
 
         //List<JObject> ballsList = new List<JObject>();
 
@@ -77,7 +82,7 @@ namespace SlXnaApp1
             _circleBody.Restitution = 0.8f;
             _circleBody.Friction = 0.5f;
             GetMoveDir(_circleBody.Position); //////////!!!!!!!!!!!!!!!!!!!!!!!!
-            SendDates(); // initial Jobj
+            SendDates("Click"); // initial Jobj
         }
 
         public void GetMoveDir(Vector2 ClickPos)//передамо вектор кліку
@@ -100,22 +105,45 @@ namespace SlXnaApp1
             _circleBody.LinearVelocity = _direction;// нажаємо прискорення тілу
         }
 
-        public void SendDates()
+        public void SendDates(string Type)
         {
             
-            _jsonClick.RemoveAll();
-            _jsonClick.Add("X", this._clickPos.X);
-            _jsonClick.Add("Y", this._clickPos.Y);
-            
-            _jsonClick.Add("Item", GamePage.masItem);
+            _jObj.RemoveAll();
+            _jObj.Add("X", this._clickPos.X);
+            _jObj.Add("Y", this._clickPos.Y);
+            _jObj.Add("PosX", this._circleBody.Position.X.ToString());
+            _jObj.Add("PosY", this._circleBody.Position.Y.ToString());            
+            _jObj.Add("Item", GamePage.masItem);
             //_jsonClick.Add("Type", 1);//click
 
-            _jsonClick.Add("PosX", this._circleBody.Position.X.ToString());
-            _jsonClick.Add("PosY", this._circleBody.Position.Y.ToString());
-            WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jsonClick.ToString()));//sendObj.ToString()));
+
+            _jObj.Add("Time", GamePage.time);
+            _jObj.Add("Type", Type);
+            //_jObj.Add("Delt", this.Delt);
+            _jObj.Add("Q", this.Q);//відсилаємо різницю часу між копіями на різних телефонах
+            //_jDates.Add("St0", this.St0);
+            //_jDates.Add("St1", this.St1);
+            //_jDates.Add("Ct1", this.Ct1);
+            //_jDates.Add("Ct2", this.Ct2);
+            
+
+            
+            WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jObj.ToString()));//sendObj.ToString()));
             //_jsonObj.RemoveAll();
             
         }
+
+        public void SendAnswer(int StItem)// дані відсилаємо назад тому клієнту від якого отримали
+        {
+            //_jObj.Add("Time", GamePage.time);
+            _jObj.RemoveAll();
+            _jObj.Add("Type", "Ct");
+            _jObj.Add("Delt", this.Delt);
+            _jObj.Add("Item", StItem);
+            WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jObj.ToString()));//sendObj.ToString()));
+
+        }
+        
 
         public void SendPos()
         {
@@ -134,10 +162,60 @@ namespace SlXnaApp1
         {
 
             //_jsonObj = jsonObj;
-            _clickPos.X = float.Parse(jsonObj["X"].ToString());
-            _clickPos.Y = float.Parse(jsonObj["Y"].ToString());
-            this.GetMoveDir(_clickPos);
-            this.MoveBall();
+            if ((int)jsonObj["Item"] != GamePage.masItem && (string)jsonObj["Type"] != "Ct")//провіряємо щоб не обробляти своїж дані
+            {
+                //провірили що отримуємо дані від первинної копії(St, Click) на іншому клієнті
+
+
+
+                // спочатку обробляємо таймер
+                //if ((int)jsonObj["Item"] == 0) // ми отримали дані від першого(головного) клієнта
+                //{
+
+                //    //St0 = (float)jsonObj["Time"];
+                //    //Ct2 = GamePage.time;
+                //    //SendDates();
+                //}
+
+                //if (GamePage.masItem == 0)
+                //{
+                //    St1 = GamePage.time;
+                //    Ct1 = (float)jsonObj["Time"];
+
+                //    Q = ((St1 - Ct1) - (Ct2 - St0)) / 2;
+                //}
+
+                if ((string)jsonObj["Type"] == "Click")//
+                {
+                    //обробка вхід даних
+                    _clickPos.X = float.Parse(jsonObj["X"].ToString());
+                    _clickPos.Y = float.Parse(jsonObj["Y"].ToString());
+                    this.GetMoveDir(_clickPos);
+                    this.MoveBall();
+                }
+                else if ((string)jsonObj["Type"] == "St")//  ми отримали дані з сервера(з первинної копії)
+                {
+                    //Q = (St1 + St0 - 2Ct0) / 2; 
+                    //Q разница во времени между сервером и клиентом сетевой игры
+                    //St0 момент передачи сервером сетевой игры первого пакета данных клиенту сетевой игры
+                    //St1 момент получения сервером сетевой игры второго пакета данных от клиента сетевой игры
+                    //Ct0 момент передачи клиентом сетевой игры второго пакета данных серверу сетевой игры
+                    Delt = (float)jsonObj["Time"] - 2 * GamePage.time; //St0 - 2Ct0 (Delt)
+                    this.SendAnswer((int)jsonObj["Item"]);// дані відсилає назад клієнт(вторинна копія)(вдісилає тільки Delt)
+                    
+                }
+                
+
+
+            }
+
+            else if ((int)jsonObj["Item"] == GamePage.masItem && (string)jsonObj["Type"] == "Ct")//ми отримали відповідь від лієнта(вторинної копії) і обробляємо дані для первинної тут
+            {
+                Q = ((float)jsonObj["Delt"] + GamePage.time) / 2;
+
+            }            
+
+            
             //_circleBody.Position = new Vector2((float)((_circleBody.Position.X + float.Parse(jsonObj["PosX"].ToString())) * 0.5), (float)((_circleBody.Position.Y + float.Parse(jsonObj["PosY"].ToString())) * 0.5));//(_circleBody.Position + new Vector2(, float.Parse(jsonObj["PosY"].ToString()))); 
             ////////////////////////////////////////////////
             //double targetX = (_circleBody.Position.X + float.Parse(jsonObj["PosX"].ToString())) * 0.5;
@@ -145,7 +223,6 @@ namespace SlXnaApp1
             //double errorX = targetX - _circleBody.Position.X;
             //double errorY = targetY - _circleBody.Position.Y;
             //_circleBody.ApplyForce(new Vector2((float)(1 * errorX), (float)(1 * errorY)));
-
             //_circleBody.Position = new Vector2((float)((float.Parse(_jsonObj["PosX"].ToString()))), (float)((float.Parse(_jsonObj["PosY"].ToString()))));//(_circleBody.Position + new Vector2(, float.Parse(jsonObj["PosY"].ToString()))); 
             
         }

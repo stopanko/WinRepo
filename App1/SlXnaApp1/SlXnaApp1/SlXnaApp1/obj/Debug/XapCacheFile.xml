@@ -1,8 +1,8 @@
-﻿<xapCache source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\SlXnaApp1.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="07.02.2014 0:07:35">
+﻿<xapCache source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\SlXnaApp1.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="13.02.2014 1:12:47">
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="30.11.2013 19:44:56" />
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Background.png" archivePath="Background.png" lastWriteTime="30.11.2013 19:34:11" />
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="30.11.2013 19:34:11" />
-  <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\SlXnaApp1.dll" archivePath="SlXnaApp1.dll" lastWriteTime="07.02.2014 0:07:30" />
+  <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\SlXnaApp1.dll" archivePath="SlXnaApp1.dll" lastWriteTime="13.02.2014 1:12:46" />
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\AppWarp_WP7_SDK.dll" archivePath="AppWarp_WP7_SDK.dll" lastWriteTime="30.11.2013 19:34:11" />
   <file source="C:\Users\ATOM\Desktop\Закачки\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\bin\Windows Phone\Debug\FarseerPhysics WP7.dll" archivePath="FarseerPhysics WP7.dll" lastWriteTime="28.01.2014 23:39:53" />
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Newtonsoft.Json.WindowsPhone.dll" archivePath="Newtonsoft.Json.WindowsPhone.dll" lastWriteTime="30.11.2013 19:34:11" />
@@ -11,7 +11,7 @@
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="28.01.2014 23:53:58" />
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\ball.xnb" archivePath="Content\ball.xnb" lastWriteTime="28.01.2014 23:53:54" />
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\CircleSprite.xnb" archivePath="Content\CircleSprite.xnb" lastWriteTime="28.01.2014 23:53:54" />
-  <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\Font1.xnb" archivePath="Content\Font1.xnb" lastWriteTime="28.01.2014 23:53:54" />
+  <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\Font1.xnb" archivePath="Content\Font1.xnb" lastWriteTime="10.02.2014 21:45:06" />
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="30.11.2013 19:34:11" />
   <file source="C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="30.11.2013 19:34:11" />
 </xapCache>
