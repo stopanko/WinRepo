@@ -82,7 +82,7 @@ namespace SlXnaApp1
             _circleBody.Restitution = 0.8f;
             _circleBody.Friction = 0.5f;
             GetMoveDir(_circleBody.Position); //////////!!!!!!!!!!!!!!!!!!!!!!!!
-            SendDates("Click"); // initial Jobj
+            SendDates(); // initial Jobj
         }
 
         public void GetMoveDir(Vector2 ClickPos)//передамо вектор кліку
@@ -105,7 +105,7 @@ namespace SlXnaApp1
             _circleBody.LinearVelocity = _direction;// нажаємо прискорення тілу
         }
 
-        public void SendDates(string Type)
+        public void SendDates()//відсилає дані від первинної копії іншим(відсилає ввід юзера)
         {
             
             _jObj.RemoveAll();
@@ -113,19 +113,20 @@ namespace SlXnaApp1
             _jObj.Add("Y", this._clickPos.Y);
             _jObj.Add("PosX", this._circleBody.Position.X.ToString());
             _jObj.Add("PosY", this._circleBody.Position.Y.ToString());            
-            _jObj.Add("Item", GamePage.masItem);
+            _jObj.Add("Item", GamePage.masItem);//який телефон прислав дані
+            _jObj.Add("Sender", GamePage.masItem);//про яку копію дані
             //_jsonClick.Add("Type", 1);//click
-
+            _jObj.Add("Recipient", -1);
 
             _jObj.Add("Time", GamePage.time);
-            _jObj.Add("Type", Type);
             //_jObj.Add("Delt", this.Delt);
-            _jObj.Add("Q", this.Q);//відсилаємо різницю часу між копіями на різних телефонах
+            //_jObj.Add("Type", Type);
+            //_jObj.Add("Delt", this.Delt);
+            //_jObj.Add("Q", this.Q);//відсилаємо різницю часу між копіями на різних телефонах
             //_jDates.Add("St0", this.St0);
             //_jDates.Add("St1", this.St1);
             //_jDates.Add("Ct1", this.Ct1);
-            //_jDates.Add("Ct2", this.Ct2);
-            
+            //_jDates.Add("Ct2", this.Ct2);        
 
             
             WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jObj.ToString()));//sendObj.ToString()));
@@ -133,13 +134,28 @@ namespace SlXnaApp1
             
         }
 
-        public void SendAnswer(int StItem)// дані відсилаємо назад тому клієнту від якого отримали
+
+        public void SendTime(int sender)// відсилає дані від вторинної копіїі до первинної щоб взнати час затримки для кожної вторинної від первинної
+        {
+            _jObj.RemoveAll();
+            _jObj.Add("Recipient", -1);
+            _jObj.Add("Time", GamePage.time);
+            _jObj.Add("Sender", sender);// вторинна копія яка відсилає час
+            _jObj.Add("Item", GamePage.masItem);//який телефон відсилає дані
+            WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jObj.ToString()));
+        }
+
+        public void SendAnswer(int Recipient)// дані відсилаємо назад тому клієнту від якого отримали
         {
             //_jObj.Add("Time", GamePage.time);
             _jObj.RemoveAll();
-            _jObj.Add("Type", "Ct");
+            //_jObj.Add("Type", "Ct");
             _jObj.Add("Delt", this.Delt);
-            _jObj.Add("Item", StItem);
+            _jObj.Add("Item", GamePage.masItem);
+            _jObj.Add("Sender", GamePage.masItem);
+            _jObj.Add("Type", 1);
+            _jObj.Add("Recipient", Recipient);
+            
             WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jObj.ToString()));//sendObj.ToString()));
 
         }
@@ -157,15 +173,31 @@ namespace SlXnaApp1
             //WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jsonPos.ToString()));
         }
 
+        public void GetDelt(JObject jsonObj)//отримуємо різницю явсу і обч Q
+        {
+            Q = ((float)jsonObj["Delt"] + GamePage.time) / 2;
+
+        }
+
+        public void GetTime(JObject jsonObj)//отримуємо час і обчислюємо Delt
+        {
+
+            Delt = (float)jsonObj["Time"] - 2 * GamePage.time;
+        }
 
         public void GetDates(JObject jsonObj)
         {
 
             //_jsonObj = jsonObj;
-            if ((int)jsonObj["Item"] != GamePage.masItem && (string)jsonObj["Type"] != "Ct")//провіряємо щоб не обробляти своїж дані
+            if ((int)jsonObj["Item"] != GamePage.masItem )//провіряємо щоб не обробляти своїж дані
             {
                 //провірили що отримуємо дані від первинної копії(St, Click) на іншому клієнті
 
+                //обробка вхід даних
+                _clickPos.X = float.Parse(jsonObj["X"].ToString());
+                _clickPos.Y = float.Parse(jsonObj["Y"].ToString());
+                this.GetMoveDir(_clickPos);
+                this.MoveBall();
 
 
                 // спочатку обробляємо таймер
@@ -185,37 +217,25 @@ namespace SlXnaApp1
                 //    Q = ((St1 - Ct1) - (Ct2 - St0)) / 2;
                 //}
 
-                if ((string)jsonObj["Type"] == "Click")//
-                {
-                    //обробка вхід даних
-                    _clickPos.X = float.Parse(jsonObj["X"].ToString());
-                    _clickPos.Y = float.Parse(jsonObj["Y"].ToString());
-                    this.GetMoveDir(_clickPos);
-                    this.MoveBall();
-                }
-                else if ((string)jsonObj["Type"] == "St")//  ми отримали дані з сервера(з первинної копії)
-                {
-                    //Q = (St1 + St0 - 2Ct0) / 2; 
-                    //Q разница во времени между сервером и клиентом сетевой игры
-                    //St0 момент передачи сервером сетевой игры первого пакета данных клиенту сетевой игры
-                    //St1 момент получения сервером сетевой игры второго пакета данных от клиента сетевой игры
-                    //Ct0 момент передачи клиентом сетевой игры второго пакета данных серверу сетевой игры
-                    Delt = (float)jsonObj["Time"] - 2 * GamePage.time; //St0 - 2Ct0 (Delt)
-                    this.SendAnswer((int)jsonObj["Item"]);// дані відсилає назад клієнт(вторинна копія)(вдісилає тільки Delt)
+                
                     
-                }
+                
+                //else if ((string)jsonObj["Type"] == "St")//  ми отримали дані з сервера(з первинної копії)
+                //{
+                //    //Q = (St1 + St0 - 2Ct0) / 2; 
+                //    //Q разница во времени между сервером и клиентом сетевой игры
+                //    //St0 момент передачи сервером сетевой игры первого пакета данных клиенту сетевой игры
+                //    //St1 момент получения сервером сетевой игры второго пакета данных от клиента сетевой игры
+                //    //Ct0 момент передачи клиентом сетевой игры второго пакета данных серверу сетевой игры
+                //    Delt = (float)jsonObj["Time"] - 2 * GamePage.time; //St0 - 2Ct0 (Delt)
+                //    this.SendAnswer((int)jsonObj["Item"]);// дані відсилає назад клієнт(вторинна копія)(вдісилає тільки Delt)
+                    
+                //}
                 
 
 
-            }
+            }                      
 
-            else if ((int)jsonObj["Item"] == GamePage.masItem && (string)jsonObj["Type"] == "Ct")//ми отримали відповідь від лієнта(вторинної копії) і обробляємо дані для первинної тут
-            {
-                Q = ((float)jsonObj["Delt"] + GamePage.time) / 2;
-
-            }            
-
-            
             //_circleBody.Position = new Vector2((float)((_circleBody.Position.X + float.Parse(jsonObj["PosX"].ToString())) * 0.5), (float)((_circleBody.Position.Y + float.Parse(jsonObj["PosY"].ToString())) * 0.5));//(_circleBody.Position + new Vector2(, float.Parse(jsonObj["PosY"].ToString()))); 
             ////////////////////////////////////////////////
             //double targetX = (_circleBody.Position.X + float.Parse(jsonObj["PosX"].ToString())) * 0.5;

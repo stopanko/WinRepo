@@ -161,7 +161,7 @@ namespace SlXnaApp1
                 {
                     Balls_mas[masItem].GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));                    
                     Balls_mas[masItem].MoveBall(); ////////перевірити в якому порядку методи краще викликати
-                    Balls_mas[masItem].SendDates("Click");//Only click send                    
+                    Balls_mas[masItem].SendDates();//Only click send                    
                 }
             }
 
@@ -177,8 +177,21 @@ namespace SlXnaApp1
             DatesList.ForEach(
                 delegate(JObject Jo)
                 {
-                    
-                    GamePage.Balls_mas[(int)Jo["Item"]].GetDates(Jo);// приймаємо данф на вторинній копії
+                    if ((int)Jo["Item"] == (int)Jo["Sender"] && (int)Jo["Recipient"] == -1)
+                    {
+                        GamePage.Balls_mas[(int)Jo["Item"]].GetDates(Jo);// приймаємо дані на вторинних копіях
+                    }
+
+                    else if ((int)Jo["Item"] != (int)Jo["Sender"] && ((int)Jo["Sender"] == GamePage.masItem))
+                    {
+                        GamePage.Balls_mas[(int)Jo["Sender"]].GetTime(Jo);// отримуємо час від вторичної копії і обч Delt і зразу відсил в той самий телефон відповідь
+                        GamePage.Balls_mas[(int)Jo["Sender"]].SendAnswer((int)Jo["Item"]);
+                    }
+
+                    if ((int)Jo["Recipient"] != -1 && GamePage.masItem == (int)Jo["Recipient"] && (int)Jo["Type"] == 1)//попали на телефон з якого відсилали дані
+                    {
+                        GamePage.Balls_mas[(int)Jo["Sender"]].GetDelt(Jo);
+                    }
                     //}
                     GamePage.DatesList.Remove(Jo);
                     
@@ -197,14 +210,24 @@ namespace SlXnaApp1
             if (time / (1000 * timeCount) >= 0.3)
             {
                 //Draw = true;
-                Balls_mas[masItem].SendDates("St");//Send dates до вторинної копії з сервера на другому тедефоні   
+                //Balls_mas[masItem].SendDates();//Send dates до вторинної копії з сервера на другому тедефоні   
                 //time = 0;
+                for (int i = 0; i < maxUsers; i++)
+                {
+                    if (i != masItem)
+                    {
+                        Balls_mas[i].SendTime(i);
+                    }
+                }
                 timeCount++;               
  
             }
 
+            //відсилаємо час для коректування (від вторинних копій до первинних)
             
-            Ws._world.Step(0.033333f);
+
+
+                Ws._world.Step(0.033333f);
         }
 
         /// <summary>
@@ -223,7 +246,15 @@ namespace SlXnaApp1
             spriteBatch.DrawString(font, time.ToString() + "  " + timeCount.ToString(), new Vector2(0,0), Color.Red);
             //if (Draw == true)
             //{
-                spriteBatch.DrawString(font, (Balls_mas[masItem].Q/1000).ToString(), new Vector2(100, 100), Color.Black);
+            for (int i = 0; i < maxUsers; i++)
+            {
+                if (i != masItem)
+                {
+                    spriteBatch.DrawString(font, ("Item " + i.ToString() + " " + Balls_mas[i].Q / 1000).ToString(), new Vector2(100 * (i + 1), 100), Color.Black);
+                }
+ 
+            }
+                //spriteBatch.DrawString(font, (Balls_mas[masItem].Q / 1000).ToString(), new Vector2(100, 100), Color.Black);
             //    Draw = false;
  
             //}
