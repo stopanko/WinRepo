@@ -177,18 +177,18 @@ namespace SlXnaApp1
             DatesList.ForEach(
                 delegate(JObject Jo)
                 {
-                    if ((int)Jo["Item"] == (int)Jo["Sender"] && (int)Jo["Recipient"] == -1)
+                    if ((string)Jo["Type"] == "SendDates")
                     {
                         GamePage.Balls_mas[(int)Jo["Item"]].GetDates(Jo);// приймаємо дані на вторинних копіях
                     }
 
-                    else if ((int)Jo["Item"] != (int)Jo["Sender"] && ((int)Jo["Sender"] == GamePage.masItem))
+                    else if ((string)Jo["Type"] == "SendTime" && (int)Jo["Sender"] == GamePage.masItem)
                     {
                         GamePage.Balls_mas[(int)Jo["Sender"]].GetTime(Jo);// отримуємо час від вторичної копії і обч Delt і зразу відсил в той самий телефон відповідь
                         GamePage.Balls_mas[(int)Jo["Sender"]].SendAnswer((int)Jo["Item"]);
                     }
 
-                    if ((int)Jo["Recipient"] != -1 && GamePage.masItem == (int)Jo["Recipient"] && (int)Jo["Type"] == 1)//попали на телефон з якого відсилали дані
+                    if ((string)Jo["Type"] == "SendDelt" && (int)Jo["Recipient"] == GamePage.masItem)//попали на телефон з якого відсилали дані
                     {
                         GamePage.Balls_mas[(int)Jo["Sender"]].GetDelt(Jo);
                     }

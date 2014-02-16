@@ -116,7 +116,7 @@ namespace SlXnaApp1
             _jObj.Add("Item", GamePage.masItem);//який телефон прислав дані
             _jObj.Add("Sender", GamePage.masItem);//про яку копію дані
             //_jsonClick.Add("Type", 1);//click
-            _jObj.Add("Recipient", -1);
+            _jObj.Add("Type", "SendDates");
 
             _jObj.Add("Time", GamePage.time);
             //_jObj.Add("Delt", this.Delt);
@@ -138,7 +138,7 @@ namespace SlXnaApp1
         public void SendTime(int sender)// відсилає дані від вторинної копіїі до первинної щоб взнати час затримки для кожної вторинної від первинної
         {
             _jObj.RemoveAll();
-            _jObj.Add("Recipient", -1);
+            _jObj.Add("Type", "SendTime");
             _jObj.Add("Time", GamePage.time);
             _jObj.Add("Sender", sender);// вторинна копія яка відсилає час
             _jObj.Add("Item", GamePage.masItem);//який телефон відсилає дані
@@ -152,9 +152,9 @@ namespace SlXnaApp1
             //_jObj.Add("Type", "Ct");
             _jObj.Add("Delt", this.Delt);
             _jObj.Add("Item", GamePage.masItem);
-            _jObj.Add("Sender", GamePage.masItem);
-            _jObj.Add("Type", 1);
+            _jObj.Add("Sender", GamePage.masItem);           
             _jObj.Add("Recipient", Recipient);
+            _jObj.Add("Type", "SendDelt");
             
             WarpClient.GetInstance().SendUpdatePeers(System.Text.Encoding.UTF8.GetBytes(_jObj.ToString()));//sendObj.ToString()));
 
