@@ -1,0 +1,13 @@
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\Bin\Debug\ApplicationIcon.png
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\Bin\Debug\Background.png
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\Bin\Debug\FishProject.dll
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\Bin\Debug\FishProject.pdb
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\Bin\Debug\AppManifest.xaml
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\Bin\Debug\FishProject.xap
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\obj\Debug\App.g.i.cs
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\obj\Debug\GamePage.g.i.cs
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\obj\Debug\MainPage.g.i.cs
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\obj\Debug\FishProject.g.resources
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\obj\Debug\FishProject.dll
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\obj\Debug\FishProject.pdb
+C:\WinRepo\FishProject\FishProject\FishProject\FishProject\obj\Debug\XapCacheFile.xml
