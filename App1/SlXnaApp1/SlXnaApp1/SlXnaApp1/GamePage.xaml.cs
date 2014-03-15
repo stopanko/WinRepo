@@ -243,14 +243,14 @@ namespace SlXnaApp1
                 b.DrawBall(spriteBatch);
                 
             }
-            spriteBatch.DrawString(font, time.ToString() + "  " + timeCount.ToString(), new Vector2(0,0), Color.Red);
+            spriteBatch.DrawString(font, "Item " + masItem.ToString() + ":  " + time.ToString() + "  " + timeCount.ToString(), new Vector2(0,0), Color.Red);
             //if (Draw == true)
             //{
             for (int i = 0; i < maxUsers; i++)
             {
                 if (i != masItem)
                 {
-                    spriteBatch.DrawString(font, ("Item " + i.ToString() + " " + Balls_mas[i].Q / 1000).ToString(), new Vector2(100 * (i + 1), 100), Color.Black);
+                    spriteBatch.DrawString(font, ("ForItem " + i.ToString() + "Q=  " + Balls_mas[i].Q / 1000 + "   ping= " + Balls_mas[i].time2.ToString()).ToString(), new Vector2(0, (i+1) * 10), Color.Black);
                 }
  
             }

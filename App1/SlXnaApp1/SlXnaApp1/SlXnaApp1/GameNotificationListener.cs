@@ -61,8 +61,14 @@ namespace SlXnaApp1
            // _page.showResult("update recvd " + j );
             //JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
             //JObject jsonObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
-            GamePage.DatesList.Add(JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length)));
-           
+            try
+            {
+                GamePage.DatesList.Add(JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length)));
+            }
+            catch (Exception ex)
+            {
+                
+            }
             
             //JObject _GetObj = JObject.Parse(System.Text.Encoding.UTF8.GetString(eventObj.getUpdate(), 0, eventObj.getUpdate().Length));
             //int it = int.Parse(_GetObj["Item"].ToString());

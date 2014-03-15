@@ -67,6 +67,7 @@ namespace SlXnaApp1
         //Timer senhron
         public float Q = 0;
         public float Delt = 0;
+        public float time1, time2; 
         //
 
         //List<JObject> ballsList = new List<JObject>();
@@ -137,6 +138,7 @@ namespace SlXnaApp1
 
         public void SendTime(int sender)// відсилає дані від вторинної копіїі до первинної щоб взнати час затримки для кожної вторинної від первинної
         {
+            time1 = GamePage.time;
             _jObj.RemoveAll();
             _jObj.Add("Type", "SendTime");
             _jObj.Add("Time", GamePage.time);
@@ -175,11 +177,12 @@ namespace SlXnaApp1
 
         public void GetDelt(JObject jsonObj)//отримуємо різницю явсу і обч Q
         {
+            time2 = (GamePage.time - time1) / 2;
             Q = ((float)jsonObj["Delt"] + GamePage.time) / 2;
 
         }
 
-        public void GetTime(JObject jsonObj)//отримуємо час і обчислюємо Delt
+        public void GetTime(JObject jsonObj)//отримуємо час(на первинній копії) і обчислюємо Delt
         {
 
             Delt = (float)jsonObj["Time"] - 2 * GamePage.time;
