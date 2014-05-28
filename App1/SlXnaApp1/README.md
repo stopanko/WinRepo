@@ -22,4 +22,32 @@
 
 <p>На сторінці головного меню знаходяться методи за допомогою яких відбуваєтся підключення до сервера та кімнати. А на ігровій сторінці підключені класи які займаються передачею та отриманням даних.</p>
 
-На даному етапі клієнти "вміють" синхронізувати ігровий час між собою та враховувати затримку передачі інформації між копіями на інших пристоях. 
+<p>На даному етапі клієнти &quot;вміють&quot; синхронізувати ігровий час між собою та враховувати затримку передачі інформації між копіями на інших пристоях.</p>
+
+<hr />
+<h1><strong>Перелік програмного забезпечення необхідного для успішного запуску додатку</strong></h1>
+
+<p><strong>Для початку потрібно встановити операційну систему Windows. Працювати із WindowsPhone7 можна лише за допомогою Visual Studio не нижче 2010 версії.&nbsp;Для встановлення VisualStudio необхідна операційна система не нижче Windows Xp. Якщо працювати потрібно із WindowsPhone 8, то для цього необхідно встановити Windows 8/8.1,&nbsp;Visual Studio 2012 та мати в розпорядженні ПК із процесором не нижче&nbsp;Core I3. &nbsp;&nbsp;</strong></p>
+
+<p><strong>Безкоштовну версію Visual Studio можна </strong><a href="http://www.microsoft.com/ru-ru/softmicrosoft/VisualStudioExpress.aspx"><strong>завантажити </strong></a><strong>з офіційного сайту або отримати пакет Professional за допомогою програми <a href="http://www.dreamspark.ru/">DreamSpark</a>.</strong></p>
+
+<p><strong>Після встановлення середовища для розробки завантажуємо <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=17851">NET Framework</a></strong></p>
+
+<p><strong>Тепер необхідно <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=23691">встановити </a>оновлення Sp1 дял VS2010 </strong></p>
+
+<p><strong>Завантажуємо&nbsp;та встановлюємо&nbsp;пакет розробника <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=27570">WindowsPhone7.1</a>&nbsp;та <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=36474">оновлення </a>для нього</strong></p>
+
+<p><strong>Залишається встановити бібліотеки для роботи, а саме фреймворк <a href="http://www.microsoft.com/en-us/download/details.aspx?id=23714">XNA 4.0</a></strong></p>
+
+<p><strong>Якщо робота буде вестися на операційній системі Windows 8.1 дял встановлення XNA потрібно попередньо завантажити клієнт магазину <a href="http://www.xbox.com/ru-RU/Live/PC/DownloadClient">Games for Windows</a></strong></p>
+
+<p>&nbsp;</p>
+
+<hr />
+<p>Якщо у Visual Studio&nbsp;винекнуть проблеми із безпекою&nbsp;під час розгортання проекту потрібно виконати наступні дії:</p>
+
+<p>- клікнути на папці проекту правою кнопкою та вибрати Властивості</p>
+
+<p>- на вкладці загальні клацнути на кнопку Розблокувати (якщо така є)</p>
+
+<p>Тепер у Visual Studio не повинно виникнути проблем із доступом&nbsp;під час запуску&nbsp;&nbsp;</p>
