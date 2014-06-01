@@ -10,6 +10,8 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using com.shephertz.app42.gaming.multiplayer.client.events;
 using com.shephertz.app42.gaming.multiplayer.client.command;
+using System.Windows.Navigation;
+
 
 namespace SlXnaApp1
 {
@@ -27,6 +29,13 @@ namespace SlXnaApp1
             if (eventObj.getResult() == WarpResponseResultCode.SUCCESS)
             {
                 _page.showResult("connection success");
+
+                //перенаправлення на сторінку
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    _page.NavigationService.Navigate(new Uri("/Views/RoomsListPage.xaml", UriKind.Relative));
+                });
+                
             }
             else
             {
@@ -38,5 +47,10 @@ namespace SlXnaApp1
         public void onDisconnectDone(ConnectEvent eventObj)
         {
         }
+
+       
+        
+
+
     }
 }
