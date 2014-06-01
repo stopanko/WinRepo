@@ -193,5 +193,23 @@ namespace SlXnaApp1
         }
 
         #endregion
+
+        #region Settings Management
+        // Declare an event for when the application data changes.
+        public event EventHandler ApplicationDataObjectChanged;
+
+
+        // Create a method to raise the ApplicationDataObjectChanged event.
+        protected void OnApplicationDataObjectChanged(EventArgs e)
+        {
+            EventHandler handler = ApplicationDataObjectChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+
+        #endregion
     }
 }

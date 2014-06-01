@@ -131,13 +131,14 @@ namespace SlXnaApp1
             WarpClient.initialize("c27b5f96a94fe0e53183643fd1221af45ccbd94894201a0a51eacd5694bf0d36", "9dc629fdd584be0922cf38415057d1d80868a03ca60ac51c7048b68696a4ff4e");
             WarpClient game = WarpClient.GetInstance();
             game.AddConnectionRequestListener(new ConListen(this));
-            game.AddZoneRequestListener(new ZoneReqListener(this));
-            game.AddRoomRequestListener(new RoomReqListener(this));
-            game.AddNotificationListener(new NotificationListener(this));
-            game.AddLobbyRequestListener(new LobbyReqListen(this));
+            //game.AddZoneRequestListener(new ZoneReqListener(this));
+            //game.AddRoomRequestListener(new RoomReqListener(this));
+            //game.AddNotificationListener(new NotificationListener(this));
+            //game.AddLobbyRequestListener(new LobbyReqListen(this));
             Thread.Sleep(500);
-            WarpClient.GetInstance().Connect(textBox1.Text + R.Next(2000).ToString());
-
+            UserDates._UserName = textBox1.Text + R.Next(2000).ToString();
+            WarpClient.GetInstance().Connect(UserDates._UserName);
+           
             //GetConnect("c27b5f96a94fe0e53183643fd1221af45ccbd94894201a0a51eacd5694bf0d36", "9dc629fdd584be0922cf38415057d1d80868a03ca60ac51c7048b68696a4ff4e");
         }
 
