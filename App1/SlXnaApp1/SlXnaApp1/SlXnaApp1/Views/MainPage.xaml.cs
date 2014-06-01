@@ -43,6 +43,7 @@ namespace SlXnaApp1
         // Simple button Click event handler to take us to the second page
         public static void GetConnect(string API_key, string Secret_key)
         {
+            ///не пахає
             MainPage _MPage = new MainPage();
             Random R = new Random();
             _MPage.textBlock1.Text = "";
@@ -54,8 +55,12 @@ namespace SlXnaApp1
             //game.AddNotificationListener(new NotificationListener(this));
             //game.AddLobbyRequestListener(new LobbyReqListen(this));
             Thread.Sleep(500);
-            WarpClient.GetInstance().Connect(_MPage.textBox1.Text + R.Next(2000).ToString());
+            UserDates._UserName = _MPage.textBox1.Text + R.Next(2000).ToString();
+            WarpClient.GetInstance().Connect(UserDates._UserName);         
+           
+            
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //btn1.Content = "s";

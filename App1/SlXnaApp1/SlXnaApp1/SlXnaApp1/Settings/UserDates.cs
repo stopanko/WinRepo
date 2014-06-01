@@ -15,6 +15,7 @@ namespace SlXnaApp1
     {
 
         public static string _UserName;
+        public static string _RoomId;
 
     }
 }

@@ -65,3 +65,4 @@ C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\ru-RU\Microsoft.Advertis
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\sv-SE\Microsoft.Advertising.Mobile.resources.dll
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\zh-CN\Microsoft.Advertising.Mobile.resources.dll
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\zh-TW\Microsoft.Advertising.Mobile.resources.dll
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\Views\RoomPage.g.i.cs

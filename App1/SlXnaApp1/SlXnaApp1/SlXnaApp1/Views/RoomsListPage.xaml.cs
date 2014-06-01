@@ -26,7 +26,7 @@ namespace SlXnaApp1
             WarpClient game = WarpClient.GetInstance();
             //game.AddConnectionRequestListener(new ConListen(this));
             game.AddZoneRequestListener(new ZoneReqListener(this));
-            game.AddRoomRequestListener(new RoomsListener(this));
+            //game.AddRoomRequestListener(new RoomsListener(this));
             //game.AddRoomRequestListener(new RoomReqListener(this));
             //game.AddNotificationListener(new NotificationListener(this));
             //game.AddLobbyRequestListener(new LobbyReqListen(this));
@@ -58,17 +58,9 @@ namespace SlXnaApp1
             
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            WarpClient.GetInstance().JoinRoom(textBox1.Text);
-            WarpClient.GetInstance().SubscribeRoom(textBox1.Text);
-            WarpClient.GetInstance().GetLiveRoomInfo(textBox1.Text);
-        }
+       
 
-        public void b_Click(object sender, EventArgs e)
-        {
-            WarpClient.GetInstance().JoinRoom((((HyperlinkButton)sender).Content).ToString());
-        }
+        
 
         private void btn_Refresh_Click(object sender, RoutedEventArgs e)
         {
@@ -103,26 +95,15 @@ namespace SlXnaApp1
 
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        public void b_Click(object sender, EventArgs e)
         {
-            
-          
-
-            //foreach(string s in ZoneReqListener.Str)
-            //{
-            //    HyperlinkButton b = new HyperlinkButton();
-            //    b.Content = s;
-            //    b.Click += new RoutedEventHandler(b_Click);
-            //    list.Add(b);
-            //}
-
-            //listBox1.ItemsSource = list;
-            //HyperlinkButton b = new HyperlinkButton();
-            //b.Content = "ssdd";
-            //b.Click += new RoutedEventHandler(b_Click);
-            //list.Add(b);
-            //listBox1.ItemsSource = list;
+            //WarpClient.GetInstance().JoinRoom((((HyperlinkButton)sender).Content).ToString());
+            //WarpClient.GetInstance().SubscribeRoom((((HyperlinkButton)sender).Content).ToString());
+            //WarpClient.GetInstance().GetLiveRoomInfo((((HyperlinkButton)sender).Content).ToString());
+            UserDates._RoomId = (((HyperlinkButton)sender).Content).ToString();
+            NavigationService.Navigate(new Uri("/Views/RoomPage.xaml", UriKind.Relative));
         }
+        
 
         public void createRoomsList(string[] str)
         {
