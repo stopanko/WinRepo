@@ -13,7 +13,7 @@ using Microsoft.Phone.Controls;
 using com.shephertz.app42.gaming.multiplayer.client.events;
 using com.shephertz.app42.gaming.multiplayer.client.command;
 using com.shephertz.app42.gaming.multiplayer.client;
-
+using System.Threading;
 namespace SlXnaApp1
 {
     public partial class RoomPage : PhoneApplicationPage
@@ -27,10 +27,14 @@ namespace SlXnaApp1
             game.AddNotificationListener(new NotificationListener(this));
             game.AddRoomRequestListener(new RoomPageListener(this));
             //підписуюся на кімнату та лобі
-            WarpClient.GetInstance().JoinRoom(UserDates._RoomId);
+            //WarpClient.GetInstance().JoinRoom(UserDates._RoomId);
             WarpClient.GetInstance().SubscribeRoom(UserDates._RoomId);
             WarpClient.GetInstance().JoinLobby();
             WarpClient.GetInstance().SubscribeLobby();
+            WarpClient.GetInstance().JoinRoom(UserDates._RoomId);
+            //Thread.Sleep(500);
+            
+            WarpClient.GetInstance().GetLiveRoomInfo(UserDates._RoomId);
 
 
             

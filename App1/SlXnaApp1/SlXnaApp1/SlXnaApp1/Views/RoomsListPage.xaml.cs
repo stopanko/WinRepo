@@ -101,6 +101,7 @@ namespace SlXnaApp1
             //WarpClient.GetInstance().SubscribeRoom((((HyperlinkButton)sender).Content).ToString());
             //WarpClient.GetInstance().GetLiveRoomInfo((((HyperlinkButton)sender).Content).ToString());
             UserDates._RoomId = (((HyperlinkButton)sender).Content).ToString();
+
             NavigationService.Navigate(new Uri("/Views/RoomPage.xaml", UriKind.Relative));
         }
         
