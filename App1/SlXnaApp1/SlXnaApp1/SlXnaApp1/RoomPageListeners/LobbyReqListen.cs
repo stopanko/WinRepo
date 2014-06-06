@@ -23,7 +23,7 @@ namespace SlXnaApp1
             _page = page;
         }
 
-        public void onJoinLobbyDone(LobbyEvent eventObj)
+        public void onGetLiveLobbyInfoDone(LobbyEvent eventObj)
         {
             WarpClient.GetInstance().SetCustomUserData("dc", "good lad");
         }
