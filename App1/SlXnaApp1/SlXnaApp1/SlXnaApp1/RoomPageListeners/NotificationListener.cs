@@ -51,6 +51,31 @@ namespace SlXnaApp1
         public void onChatReceived(ChatEvent eventObj)
         {
             _page.showResult("chat from " + eventObj.getSender() + " msg " + eventObj.getMessage() + " id "+eventObj.getLocationId() + eventObj.isLocationLobby());
+            string str = "";
+            if (eventObj.getSender() == UserDates._UserName)
+            {
+                str = "";
+            }
+            
+            else 
+            {
+                str = "\t\t\t\t\t\t\t";
+            }
+            Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                _page.chatList.Items.Add(str + eventObj.getMessage());
+            });
+            
+            //List<Control> list = new List<Control>();
+            //foreach (string s in str)
+            //{                
+            //    HyperlinkButton b = new HyperlinkButton();
+            //    b.Content = s;
+            //    b.Click += new RoutedEventHandler(b_Click);
+            //    list.Add(b);
+            //}
+            //listBox1.ItemsSource = list;
+
             WarpClient.GetInstance().GetLiveLobbyInfo();
         }
         

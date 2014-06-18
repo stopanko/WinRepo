@@ -81,6 +81,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="RoomPageListeners\RoomPageListener.cs" />
+    <Compile Include="Settings\Ball.cs" />
+    <Compile Include="Settings\ConvertUnits.cs" />
+    <Compile Include="Settings\WorldSet.cs" />
     <Compile Include="Views\RoomPage.xaml.cs">
       <DependentUpon>RoomPage.xaml</DependentUpon>
     </Compile>
@@ -89,25 +92,20 @@
     <Compile Include="Views\AppServiceProvider.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ball.cs" />
     <Compile Include="JoinPageListeners\ConListen.cs" />
-    <Compile Include="ConvertUnits.cs" />
-    <Compile Include="GameNotificationListener.cs" />
+    <Compile Include="Game Listeners\GameNotificationListener.cs" />
     <Compile Include="RoomPageListeners\LobbyReqListen.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="RoomPageListeners\NotificationListener.cs" />
-    <Compile Include="Physics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RoomReqListener.cs" />
     <Compile Include="Views\RoomsListPage.xaml.cs">
       <DependentUpon>RoomsListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WorldSet.cs" />
     <Compile Include="RoomsListListeners\ZoneReqListener.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -49,20 +49,21 @@ namespace SlXnaApp1
         //настройки світу
         public static WorldSet Ws = new WorldSet();
         //
-        
+        Texture2D Loos;
+        Texture2D Win;
         //standart
         public static ContentManager contentManager;
         GameTimer timer;
         SpriteBatch spriteBatch;
         //
+        float rountTime = 35;
 
-        
-        
+        bool clickToExit = false;
 
         public static Ball[] Balls_mas;// = new Ball[maxUsers];
-        
-        
-        
+
+        string Lefttime = "";
+        string Roundtime = "";
         public static string Txt = " ";
 
         
@@ -110,7 +111,8 @@ namespace SlXnaApp1
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(SharedGraphicsDeviceManager.Current.GraphicsDevice);
-
+            Loos = contentManager.Load<Texture2D>("YouLose");
+            Win = contentManager.Load<Texture2D>("passed");
             Ws.InitBorders();
             //винести в настройки світу
             //Vertices borders = new Vertices(4);
@@ -129,7 +131,9 @@ namespace SlXnaApp1
                 
                 Balls_mas[i] = new Ball();
                 Balls_mas[i].InitBallContent(i, Ws._world);
+                //Balls_mas[i]._circleBody.BodyType = BodyType.Dynamic;
             }
+            Balls_mas[0].isTarget = true;
             // TODO: use this.content to load your game content here
             
             // Start the timer
@@ -155,14 +159,23 @@ namespace SlXnaApp1
         /// </summary>
         private void OnUpdate(object sender, GameTimerEventArgs e)
         {
+           
+
             TouchCollection touches = TouchPanel.GetState();
             foreach (TouchLocation loc in touches)
             {
                 if (loc.State == TouchLocationState.Pressed)
                 {
-                    Balls_mas[masItem].GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));                    
-                    Balls_mas[masItem].MoveBall(); ////////перевірити в якому порядку методи краще викликати
-                    Balls_mas[masItem].SendDates();//Only click send                    
+                    if (clickToExit == true)
+                    {
+                        NavigationService.Navigate(new Uri("/Views/RoomPage.xaml", UriKind.Relative));
+                    }
+                    else
+                    {
+                        Balls_mas[masItem].GetMoveDir(new Vector2(loc.Position.X, loc.Position.Y));
+                        Balls_mas[masItem].MoveBall(); ////////перевірити в якому порядку методи краще викликати
+                        Balls_mas[masItem].SendDates();//Only click send 
+                    }
                 }
             }
 
@@ -180,7 +193,11 @@ namespace SlXnaApp1
                 {
                     if ((string)Jo["Type"] == "SendDates")
                     {
+
+                        GamePage.Balls_mas[(int)Jo["Item"]].getPosSynchronization(Jo);// жорстко прирівнюємо позиції втор копії при кліку
+                        
                         GamePage.Balls_mas[(int)Jo["Item"]].GetDates(Jo);// приймаємо дані на вторинних копіях
+                        
                     }
 
                     else if ((string)Jo["Type"] == "SendTime" && (int)Jo["Sender"] == GamePage.masItem)
@@ -191,7 +208,8 @@ namespace SlXnaApp1
 
                     if ((string)Jo["Type"] == "SendDelt" && (int)Jo["Recipient"] == GamePage.masItem)//попали на телефон з якого відсилали дані
                     {
-                        GamePage.Balls_mas[(int)Jo["Sender"]].GetDelt(Jo);
+                        GamePage.Balls_mas[(int)Jo["Sender"]].GetDelt(Jo);//обч пінг
+                        GamePage.Balls_mas[(int)Jo["Sender"]].getSynchronization(Jo);//синхронізує вторинні шари з первинними шарами 
                     }
                     //}
                     GamePage.DatesList.Remove(Jo);
@@ -208,7 +226,7 @@ namespace SlXnaApp1
                
             time += float.Parse(e.ElapsedTime.TotalMilliseconds.ToString());
 
-            if (time / (1000 * timeCount) >= 0.3)
+            if (time / (1000 * timeCount) >= 0.2)
             {
                 //Draw = true;
                 //Balls_mas[masItem].SendDates();//Send dates до вторинної копії з сервера на другому тедефоні   
@@ -225,8 +243,35 @@ namespace SlXnaApp1
             }
 
             //відсилаємо час для коректування (від вторинних копій до первинних)
-            
 
+
+            if ((time / 1000) > 5)
+            {                
+                Lefttime = "";
+                Roundtime = Math.Round((rountTime - (time / 1000)), 0).ToString();
+                for (int i = 0; i < maxUsers; i++)
+                {
+                    Balls_mas[i]._circleBody.BodyType = BodyType.Dynamic;
+                }
+
+            }
+            else
+            {
+                Lefttime = Math.Round((time / 1000), 0).ToString();
+                Roundtime = "";
+            }
+
+            if ((time / 1000) > rountTime)
+            {
+                for (int i = 0; i < maxUsers; i++)
+                {
+                    Balls_mas[i]._circleBody.BodyType = BodyType.Static;
+                }
+               
+                //NavigationService.Navigate(new Uri("/Views/RoomPage.xaml", UriKind.Relative));
+            }
+                
+            
 
                 Ws._world.Step(0.033333f);
         }
@@ -244,14 +289,29 @@ namespace SlXnaApp1
                 b.DrawBall(spriteBatch);
                 
             }
-            spriteBatch.DrawString(font, "Item " + masItem.ToString() + ":  " + time.ToString() + "  " + timeCount.ToString(), new Vector2(0,0), Color.Red);
+            //spriteBatch.DrawString(font, "Item " + masItem.ToString() + ":  " + time.ToString() + "  " + timeCount.ToString(), new Vector2(0,0), Color.Red);
+            spriteBatch.DrawString(font, Lefttime, new Vector2(400, 240), Color.White);
+            spriteBatch.DrawString(font, Roundtime, new Vector2(400, 240), Color.White);
+            if ((time / 1000) > rountTime)
+            {
+                clickToExit = true;
+                if (Balls_mas[masItem].isTarget == true)
+                {
+                    spriteBatch.Draw(Loos, new Vector2(400 - Loos.Width / 2, 240 - Loos.Height / 2), Color.White);
+                }
+                else
+                {
+                    spriteBatch.Draw(Win, new Vector2(400 - Win.Width / 2, 240 - Win.Height / 2), Color.White);
+                }
+            }
+
             //if (Draw == true)
             //{
             for (int i = 0; i < maxUsers; i++)
             {
                 if (i != masItem)
                 {
-                    spriteBatch.DrawString(font, ("ForItem " + i.ToString() + "Q=  " + Balls_mas[i].Q / 1000 + "   ping= " + Balls_mas[i].time2.ToString()).ToString(), new Vector2(0, (i+1) * 10), Color.Black);
+                    //spriteBatch.DrawString(font, ("ForItem " + i.ToString() + "Q=  " + Balls_mas[i].Q / 1000 + "   ping= " + Balls_mas[i].time2.ToString()).ToString(), new Vector2(0, (i+1) * 10), Color.Black);
                 }
  
             }

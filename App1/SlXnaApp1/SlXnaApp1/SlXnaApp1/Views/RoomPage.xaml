@@ -22,8 +22,8 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="ApplicationTitle" Text="Free Balls" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Room Page" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -31,7 +31,7 @@
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="6,6,0,0" Name="txt_Result" Text="Notification" VerticalAlignment="Top" />
             <TextBox Height="72" HorizontalAlignment="Left" Margin="6,467,0,0" Name="tb_Chat" Text="InputMessage" VerticalAlignment="Top" Width="444" />
             <Button Content="Send" Height="72" HorizontalAlignment="Left" Margin="290,541,0,0" Name="btn_Chat" VerticalAlignment="Top" Width="160" Click="btn_Chat_Click" />
-            <ListBox Height="388" HorizontalAlignment="Left" Margin="12,73,0,0" Name="listBox1" VerticalAlignment="Top" Width="426" />
+            <ListBox Height="388" HorizontalAlignment="Left" Margin="12,73,0,0" Name="chatList" VerticalAlignment="Top" Width="426" />
             <TextBlock Height="43" HorizontalAlignment="Left" Margin="27,38,0,0" Name="textBlock1" Text="RoomChat" VerticalAlignment="Top" FontSize="32" Width="156" />
             <Button Content="Go Play" Height="72" HorizontalAlignment="Left" Margin="23,541,0,0" Name="btn_Play" VerticalAlignment="Top" Width="160" Click="button1_Click" />
         </Grid>

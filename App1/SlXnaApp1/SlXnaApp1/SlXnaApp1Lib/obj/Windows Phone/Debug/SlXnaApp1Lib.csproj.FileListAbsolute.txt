@@ -14,3 +14,6 @@ C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\Microso
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\SlXnaApp1Lib.dll
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\SlXnaApp1Lib.pdb
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\CircleSprite.xnb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\obj\Windows Phone\Debug\SlXnaApp1Lib.csprojResolveAssemblyReference.cache
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\passed.xnb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\YouLose.xnb

@@ -31,6 +31,7 @@ namespace SlXnaApp1
             //game.AddNotificationListener(new NotificationListener(this));
             //game.AddLobbyRequestListener(new LobbyReqListen(this));
             //listBox1.ItemsSource = list;
+            WarpClient.GetInstance().GetAllRooms();
         }
 
 

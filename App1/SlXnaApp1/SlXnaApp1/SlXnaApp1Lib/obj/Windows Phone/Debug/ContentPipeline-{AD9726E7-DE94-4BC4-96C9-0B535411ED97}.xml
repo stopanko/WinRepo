@@ -28,6 +28,24 @@
       <Output>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\Font1.xnb</Output>
       <Time>2014-02-10T21:45:00.081428+02:00</Time>
     </Item>
+    <Item>
+      <Source>passed.png</Source>
+      <Name>passed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\passed.xnb</Output>
+      <Time>2014-06-17T08:22:07.6213464+03:00</Time>
+    </Item>
+    <Item>
+      <Source>YouLose.png</Source>
+      <Name>YouLose</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1Lib\bin\Windows Phone\Debug\Content\YouLose.xnb</Output>
+      <Time>2014-06-17T08:22:07.6213464+03:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{AD9726E7-DE94-4BC4-96C9-0B535411ED97}</ContentProjectGUID>

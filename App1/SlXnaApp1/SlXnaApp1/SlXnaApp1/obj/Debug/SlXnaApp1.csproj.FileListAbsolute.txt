@@ -33,7 +33,6 @@ C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\SlXnaApp1.g.resources
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\SlXnaApp1.dll
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\SlXnaApp1.pdb
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\XapCacheFile.xml
-C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\FarseerPhysics WP7.pdb
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\CircleSprite.xnb
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\Views\MainPage.g.i.cs
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\Views\GamePage.g.i.cs
@@ -66,3 +65,5 @@ C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\sv-SE\Microsoft.Advertis
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\zh-CN\Microsoft.Advertising.Mobile.resources.dll
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\zh-TW\Microsoft.Advertising.Mobile.resources.dll
 C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\obj\Debug\Views\RoomPage.g.i.cs
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\passed.xnb
+C:\WinRepo\App1\SlXnaApp1\SlXnaApp1\SlXnaApp1\Bin\Debug\Content\YouLose.xnb
